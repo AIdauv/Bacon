@@ -1,8 +1,3 @@
 [submodule "Bacon/vendor/spdlog"]
 	path = Bacon/vendor/spdlog
 	url = https://github.com/gabime/spdlog
-
-[submodule "Bacon/vendor/GLFW"]
-	path = Bacon/vendor/GLFW
-	url = https://github.com/AIdauv/glfw
-	branch = Bacon_use
