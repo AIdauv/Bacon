@@ -37,6 +37,12 @@
     <ClInclude Include="src\Bacon\Events\MouseEvent.h">
       <Filter>Bacon\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\Layer.h">
+      <Filter>Bacon</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Layerstack.h">
+      <Filter>Bacon</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bacon\Log.h">
       <Filter>Bacon</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Application.cpp">
+      <Filter>Bacon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Layer.cpp">
+      <Filter>Bacon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\LayerStack.cpp">
       <Filter>Bacon</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Log.cpp">

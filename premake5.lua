@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Bacon/vendor/GLFW/include"
+IncludeDir["Glad"] = "Bacon/vendor/Glad/include"
 
 include "Bacon/vendor/GLFW"
+include "Bacon/vendor/Glad"
 
 project "Bacon"
 	location "Bacon"
@@ -36,12 +38,14 @@ project "Bacon"
 	{
         "%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
     links 
     {
         "GLFW",
+		"Glad",
         "opengl32.lib",
         --"gdi32",
         --"user32",
@@ -60,7 +64,8 @@ project "Bacon"
 		{
 			"BC_PLATFORM_WINDOWS",
 			"BC_BUILD_DLL",
-            "BC_ENABLE_ASSERTS"
+            "BC_ENABLE_ASSERTS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -70,14 +75,17 @@ project "Bacon"
 
 	filter "configurations:Debug"
 		defines "BC_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "BC_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "BC_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -119,12 +127,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "BC_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "BC_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "BC_DIST"
+		buildoptions "/MD"
 		optimize "On"
