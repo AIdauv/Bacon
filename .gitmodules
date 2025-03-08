@@ -5,3 +5,7 @@
 	path = Bacon/vendor/GLFW
 	url = https://github.com/AIdauv/glfw
 	branch = Bacon_use
+[submodule "Bacon/vendor/imgui"]
+	path = Bacon/vendor/imgui
+	url = https://github.com/AIdauv/imgui
+	branch = Bacon_use

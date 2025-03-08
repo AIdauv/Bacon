@@ -12,12 +12,12 @@ public:
 
 	void OnUpdate() override
 	{
-		BC_INFO("ExampleLayer::Update");
+		//BC_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Bacon::Event& event) override
 	{
-		BC_TRACE("{0}", event.ToString());
+		//BC_TRACE("{0}", event.ToString());
 	}
 };
 
@@ -27,6 +27,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Bacon::ImGuiLayer());
 	}
 	
 	~Sandbox()

@@ -11,7 +11,7 @@ namespace Bacon {
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, windowMoved,
 		AppTick, AppUpdate, AppRender,
-		keyPressed, KeyReleased,
+		keyPressed, KeyReleased, KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseButtonScrolled
 	};
 
