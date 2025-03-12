@@ -1,2 +1,2 @@
 # Bacon
-This is an engine task following TheCherno's Hazel game engine tutorial series.
+This is an engine task that follows TheCherno's Hazel game engine tutorial series.
