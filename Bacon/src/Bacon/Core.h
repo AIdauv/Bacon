@@ -10,6 +10,10 @@
 	#error Bacon only supports windows!
 #endif // BC_PLATFORM_WINDOWS
 
+#ifdef BC_DEBUG
+	#define BC_ENABLE_ASSERTS
+#endif // BC_DEBUG
+
 #ifdef BC_ENABLE_ASSERTS
 	#define BC_ASSERT(x, ...) { if(!(x)) { BC_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define BC_CORE_ASSERT(x, ...) { if(!(x)) { BC_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
