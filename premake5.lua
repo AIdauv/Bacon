@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Bacon/vendor/GLFW/include"
 IncludeDir["Glad"] = "Bacon/vendor/Glad/include"
 IncludeDir["ImGui"] = "Bacon/vendor/imgui"
+IncludeDir["glm"] = "Bacon/vendor/glm"
 
 include "Bacon/vendor/GLFW"
 include "Bacon/vendor/Glad"
@@ -35,7 +36,9 @@ project "Bacon"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -44,7 +47,8 @@ project "Bacon"
 		"%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
     links 
@@ -112,7 +116,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Bacon/vendor/spdlog/include",
-		"Bacon/src"
+		"Bacon/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links

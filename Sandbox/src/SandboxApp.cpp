@@ -13,6 +13,9 @@ public:
 	void OnUpdate() override
 	{
 		//BC_INFO("ExampleLayer::Update");
+
+		if (Bacon::Input::IsKeyPressed(BC_KEY_TAB))
+			BC_TRACE("Tab key is pressed!");
 	}
 
 	void OnEvent(Bacon::Event& event) override
