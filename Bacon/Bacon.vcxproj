@@ -163,7 +163,6 @@
     <ClInclude Include="src\Bacon\Events\Event.h" />
     <ClInclude Include="src\Bacon\Events\KeyEvent.h" />
     <ClInclude Include="src\Bacon\Events\MouseEvent.h" />
-    <ClInclude Include="src\Bacon\ImGui\GLFWKeytoImGuiKey.h" />
     <ClInclude Include="src\Bacon\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Bacon\Input.h" />
     <ClInclude Include="src\Bacon\KeyCodes.h" />
@@ -172,7 +171,6 @@
     <ClInclude Include="src\Bacon\Log.h" />
     <ClInclude Include="src\Bacon\MouseButtonCodes.h" />
     <ClInclude Include="src\Bacon\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\bcpch.h" />
@@ -597,11 +595,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Application.cpp" />
+    <ClCompile Include="src\Bacon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Bacon\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Bacon\Layer.cpp" />
     <ClCompile Include="src\Bacon\LayerStack.cpp" />
     <ClCompile Include="src\Bacon\Log.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\bcpch.cpp">
