@@ -106,7 +106,7 @@ namespace Bacon {
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				KeyTypedEvent event(keycode, None);  // 杩欎釜glfw lambda涓嶈繑鍥瀖ods锛屾殏鏃跺～none
+				KeyTypedEvent event(keycode, None);  // 这个glfw lambda不返回mods，暂时填none
 				data.EventCallback(event);
 			});
 
