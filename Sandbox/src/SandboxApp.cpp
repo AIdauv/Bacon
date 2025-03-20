@@ -20,7 +20,7 @@ public:
 
 	void OnEvent(Bacon::Event& event) override
 	{
-		//BC_TRACE("{0}", event.ToString());
+		BC_TRACE("{0}", event.ToString());
 	}
 };
 

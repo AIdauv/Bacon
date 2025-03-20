@@ -37,7 +37,7 @@ namespace Bacon {
 			EventCallbackFn EventCallback;
 		};
 
-		WindowData m_Data;
+		WindowData m_Data{};
 	};
 }
 
