@@ -158,7 +158,9 @@
     <ClInclude Include="src\Bacon\Layerstack.h" />
     <ClInclude Include="src\Bacon\Log.h" />
     <ClInclude Include="src\Bacon\MouseButtonCodes.h" />
+    <ClInclude Include="src\Bacon\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Bacon\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\bcpch.h" />
@@ -588,6 +590,7 @@
     <ClCompile Include="src\Bacon\Layer.cpp" />
     <ClCompile Include="src\Bacon\LayerStack.cpp" />
     <ClCompile Include="src\Bacon\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\bcpch.cpp">

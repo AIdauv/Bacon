@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Bacon/Window.h"
+#include "Bacon/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -27,6 +28,7 @@ namespace Bacon {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{
