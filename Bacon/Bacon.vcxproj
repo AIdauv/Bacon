@@ -160,6 +160,7 @@
     <ClInclude Include="src\Bacon\MouseButtonCodes.h" />
     <ClInclude Include="src\Bacon\Renderer\Buffer.h" />
     <ClInclude Include="src\Bacon\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Bacon\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Bacon\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Bacon\Renderer\Renderer.h" />
     <ClInclude Include="src\Bacon\Renderer\RendererAPI.h" />
@@ -600,6 +601,7 @@
     <ClCompile Include="src\Bacon\LayerStack.cpp" />
     <ClCompile Include="src\Bacon\Log.cpp" />
     <ClCompile Include="src\Bacon\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Bacon\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Bacon\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Bacon\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Bacon\Renderer\RendererAPI.cpp" />

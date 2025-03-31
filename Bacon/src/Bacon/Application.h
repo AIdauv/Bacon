@@ -10,9 +10,6 @@
 
 #include "Bacon/ImGui/ImGuiLayer.h"
 
-#include "Bacon/Renderer/Shader.h"
-#include "Renderer/Buffer.h"
-#include "Renderer/VertexArray.h"
 
 namespace Bacon {
 	class BACON_API Application
@@ -36,12 +33,6 @@ namespace Bacon {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
 	private:
 		static Application* s_Instance;
 	};

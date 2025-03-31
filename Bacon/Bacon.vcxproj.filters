@@ -1364,6 +1364,7 @@
     <ClInclude Include="src\Bacon\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Bacon\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Bacon\Renderer\OrthographicCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Application.cpp">
@@ -1403,5 +1404,6 @@
     <ClCompile Include="src\Bacon\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Bacon\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Bacon\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>

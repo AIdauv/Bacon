@@ -12,8 +12,14 @@
 
 #include "Bacon/ImGui/ImGuiLayer.h"
 
+// ---Renderer-------------------------
+#include "Bacon/Renderer/Renderer.h"
+#include "Bacon/Renderer/RenderCommand.h"
 
+#include "Bacon/Renderer/Buffer.h"
+#include "Bacon/Renderer/Shader.h"
+#include "Bacon/Renderer/VertexArray.h"
 
-//---------Entry Point----------------
+//---------Entry Point-----------------
 #include "Bacon/EntryPoint.h"
-//------------------------------------
+//-------------------------------------
