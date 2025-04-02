@@ -6,6 +6,8 @@
 #include "Bacon/Layer.h"
 #include "Bacon/Log.h"
 
+#include "Bacon/Core/Timestep.h"
+
 #include "Bacon/Input.h"
 #include "Bacon/KeyCodes.h"
 #include "Bacon/MouseButtonCodes.h"

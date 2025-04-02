@@ -119,6 +119,7 @@ project "Sandbox"
     {
         "Bacon/vendor/spdlog/include",
         "Bacon/src",
+        "Bacon/vendor",
         "%{IncludeDir.glm}"
     }
 
