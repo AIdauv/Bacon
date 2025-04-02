@@ -20,7 +20,7 @@ public:
 			 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
-		std::shared_ptr<Bacon::VertexBuffer> vertexBuffer;
+		Bacon::Ref<Bacon::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Bacon::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 
@@ -33,7 +33,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Bacon::IndexBuffer> indexBuffer;
+		Bacon::Ref<Bacon::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Bacon::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -46,7 +46,7 @@ public:
 			-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<Bacon::VertexBuffer> squareVB;
+		Bacon::Ref<Bacon::VertexBuffer> squareVB;
 		squareVB.reset(Bacon::VertexBuffer::Create(SquareVertices, sizeof(SquareVertices)));
 		squareVB->SetLayout({
 			{Bacon::ShaderDataType::Float3, "a_Position"}
@@ -54,7 +54,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Bacon::IndexBuffer> squareIB;
+		Bacon::Ref<Bacon::IndexBuffer> squareIB;
 		squareIB.reset(Bacon::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -194,11 +194,11 @@ public:
 	{
 	}
 private:
-	std::shared_ptr<Bacon::Shader> m_Shader;
-	std::shared_ptr<Bacon::VertexArray> m_VertexArray;
+	Bacon::Ref<Bacon::Shader> m_Shader;
+	Bacon::Ref<Bacon::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Bacon::Shader> m_FlatColorShader;
-	std::shared_ptr<Bacon::VertexArray> m_SquareVA;
+	Bacon::Ref<Bacon::Shader> m_FlatColorShader;
+	Bacon::Ref<Bacon::VertexArray> m_SquareVA;
 
 	Bacon::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

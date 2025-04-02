@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #ifdef BC_PLATFORM_WINDOWS
 	#define FMT_UNICODE 0
 	#if HZ_DYNAMIC_LINK
@@ -31,3 +33,12 @@
 #define BIT(x) (1 << x)
 
 #define BC_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+namespace Bacon {
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+}
