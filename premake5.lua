@@ -18,6 +18,7 @@ IncludeDir["GLFW"] = "Bacon/vendor/GLFW/include"
 IncludeDir["Glad"] = "Bacon/vendor/Glad/include"
 IncludeDir["ImGui"] = "Bacon/vendor/imgui"
 IncludeDir["glm"] = "Bacon/vendor/glm"
+IncludeDir["stb_image"] = "Bacon/vendor/stb_image"
 
 include "Bacon/vendor/GLFW"
 include "Bacon/vendor/Glad"
@@ -40,6 +41,8 @@ project "Bacon"
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/stb_image/**.h",
+        "%{prj.name}/vendor/stb_image/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl"
     }
@@ -56,7 +59,8 @@ project "Bacon"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.stb_image}"
     }
 
     links 
