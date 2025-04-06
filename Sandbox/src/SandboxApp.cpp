@@ -11,7 +11,7 @@ class ExampleLayer : public Bacon::Layer
 {
 public:
 	ExampleLayer()
-		:Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		:Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
 		m_VertexArray.reset(Bacon::VertexArray::Create());
 
@@ -92,7 +92,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(Bacon::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Bacon::Shader::Create("vertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -123,48 +123,28 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Bacon::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Bacon::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Bacon::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Bacon::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogoTexture = Bacon::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<Bacon::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Bacon::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Bacon::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Bacon::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 
 	void OnUpdate(Bacon::Timestep ts) override
 	{
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		BC_TRACE("Delta time: {0}s ({1}ms)", ts.GetSecond(), ts.GetMilliseconds());
-
-		if (Bacon::Input::IsKeyPressed(BC_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (Bacon::Input::IsKeyPressed(BC_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
-
-		if (Bacon::Input::IsKeyPressed(BC_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-		else if (Bacon::Input::IsKeyPressed(BC_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-		if (Bacon::Input::IsKeyPressed(BC_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-
-		if (Bacon::Input::IsKeyPressed(BC_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
-
-	
-
+		// Render
 		Bacon::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Bacon::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Bacon::Renderer::BeginScene(m_Camera);
+		Bacon::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -181,11 +161,13 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Bacon::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Bacon::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_ChernoLogoTexture->Bind();
-		Bacon::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Bacon::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		// Traiangle
 		//Bacon::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -205,24 +187,21 @@ public:
 		ImGui::End();
 	}
 
-	void OnEvent(Bacon::Event& event) override
+	void OnEvent(Bacon::Event& e) override
 	{
+		m_CameraController.OnEvent(e);
 	}
 private:
+	Bacon::ShaderLibrary m_ShaderLibrary;
 	Bacon::Ref<Bacon::Shader> m_Shader;
 	Bacon::Ref<Bacon::VertexArray> m_VertexArray;
 
-	Bacon::Ref<Bacon::Shader> m_FlatColorShader, m_TextureShader;
+	Bacon::Ref<Bacon::Shader> m_FlatColorShader;
 	Bacon::Ref<Bacon::VertexArray> m_SquareVA;
 
 	Bacon::Ref<Bacon::Texture2D> m_Texture, m_ChernoLogoTexture;
 
-	Bacon::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 5.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
+	Bacon::OrthographicCameraController m_CameraController;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

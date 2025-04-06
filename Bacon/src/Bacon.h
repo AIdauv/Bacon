@@ -11,6 +11,7 @@
 #include "Bacon/Input.h"
 #include "Bacon/KeyCodes.h"
 #include "Bacon/MouseButtonCodes.h"
+#include "Bacon/OrthographicCameraController.h"
 
 #include "Bacon/ImGui/ImGuiLayer.h"
 
