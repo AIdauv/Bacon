@@ -1,7 +1,7 @@
 #include "bcpch.h"
 
 #include "WindowsInput.h"
-#include "Bacon/Application.h"
+#include "Bacon/Core/Application.h"
 
 #include <GLFW/glfw3.h>
 

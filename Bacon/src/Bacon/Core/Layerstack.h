@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Bacon/Core.h"
+#include "Bacon/Core/Core.h"
 #include "Layer.h"
 
 #include <vector>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Bacon/Window.h"
+#include "Bacon/Core/Window.h"
 #include "Bacon/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

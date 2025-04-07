@@ -144,32 +144,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Bacon.h" />
-    <ClInclude Include="src\Bacon\Application.h" />
-    <ClInclude Include="src\Bacon\Core.h" />
+    <ClInclude Include="src\Bacon\Core\Application.h" />
+    <ClInclude Include="src\Bacon\Core\Core.h" />
+    <ClInclude Include="src\Bacon\Core\EntryPoint.h" />
+    <ClInclude Include="src\Bacon\Core\Input.h" />
+    <ClInclude Include="src\Bacon\Core\KeyCodes.h" />
+    <ClInclude Include="src\Bacon\Core\Layer.h" />
+    <ClInclude Include="src\Bacon\Core\Layerstack.h" />
+    <ClInclude Include="src\Bacon\Core\Log.h" />
+    <ClInclude Include="src\Bacon\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Bacon\Core\Timestep.h" />
-    <ClInclude Include="src\Bacon\EntryPoint.h" />
+    <ClInclude Include="src\Bacon\Core\Window.h" />
     <ClInclude Include="src\Bacon\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Bacon\Events\Event.h" />
     <ClInclude Include="src\Bacon\Events\KeyEvent.h" />
     <ClInclude Include="src\Bacon\Events\MouseEvent.h" />
     <ClInclude Include="src\Bacon\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Bacon\Input.h" />
-    <ClInclude Include="src\Bacon\KeyCodes.h" />
-    <ClInclude Include="src\Bacon\Layer.h" />
-    <ClInclude Include="src\Bacon\Layerstack.h" />
-    <ClInclude Include="src\Bacon\Log.h" />
-    <ClInclude Include="src\Bacon\MouseButtonCodes.h" />
-    <ClInclude Include="src\Bacon\OrthographicCameraController.h" />
     <ClInclude Include="src\Bacon\Renderer\Buffer.h" />
     <ClInclude Include="src\Bacon\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Bacon\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Bacon\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Bacon\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Bacon\Renderer\Renderer.h" />
     <ClInclude Include="src\Bacon\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Bacon\Renderer\Shader.h" />
     <ClInclude Include="src\Bacon\Renderer\Texture.h" />
     <ClInclude Include="src\Bacon\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Bacon\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -600,15 +600,15 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Bacon\Application.cpp" />
+    <ClCompile Include="src\Bacon\Core\Application.cpp" />
+    <ClCompile Include="src\Bacon\Core\Layer.cpp" />
+    <ClCompile Include="src\Bacon\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Bacon\Core\Log.cpp" />
     <ClCompile Include="src\Bacon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Bacon\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Bacon\Layer.cpp" />
-    <ClCompile Include="src\Bacon\LayerStack.cpp" />
-    <ClCompile Include="src\Bacon\Log.cpp" />
-    <ClCompile Include="src\Bacon\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Bacon\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Bacon\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Bacon\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Bacon\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Bacon\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Bacon\Renderer\RendererAPI.cpp" />

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Bacon/Input.h"
+#include "Bacon/Core/Input.h"
 
 namespace Bacon {
 

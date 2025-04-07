@@ -1,8 +1,8 @@
 #include "bcpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Bacon/Input.h"
-#include "Bacon/KeyCodes.h"
+#include "Bacon/Core/Input.h"
+#include "Bacon/Core/KeyCodes.h"
 
 namespace Bacon {
 

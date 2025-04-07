@@ -2,20 +2,20 @@
 
 // for use by Bacon applications
 
-#include "Bacon/Application.h"
-#include "Bacon/Layer.h"
-#include "Bacon/Log.h"
+#include "Bacon/Core/Application.h"
+#include "Bacon/Core/Layer.h"
+#include "Bacon/Core/Log.h"
 
 #include "Bacon/Core/Timestep.h"
 
-#include "Bacon/Input.h"
-#include "Bacon/KeyCodes.h"
-#include "Bacon/MouseButtonCodes.h"
-#include "Bacon/OrthographicCameraController.h"
+#include "Bacon/Core/Input.h"
+#include "Bacon/Core/KeyCodes.h"
+#include "Bacon/Core/MouseButtonCodes.h"
+#include "Bacon/Renderer/OrthographicCameraController.h"
 
 #include "Bacon/ImGui/ImGuiLayer.h"
 
-// ---Renderer-------------------------
+// ---Renderer---------------------------
 #include "Bacon/Renderer/Renderer.h"
 #include "Bacon/Renderer/RenderCommand.h"
 
@@ -24,6 +24,5 @@
 #include "Bacon/Renderer/Texture.h"
 #include "Bacon/Renderer/VertexArray.h"
 
-//---------Entry Point-----------------
-#include "Bacon/EntryPoint.h"
-//-------------------------------------
+#include "Bacon/Renderer/OrthographicCamera.h"
+// --------------------------------------

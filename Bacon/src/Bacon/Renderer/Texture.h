@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Bacon/Core.h"
+#include "Bacon/Core/Core.h"
 
 
 namespace Bacon {
