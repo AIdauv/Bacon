@@ -9,7 +9,8 @@ namespace Bacon {
 	{
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		//glEnable(GL_DEPTH_TEST);
+
+		glEnable(GL_DEPTH_TEST);
 		//glDepthFunc(GL_LESS);
 		//glEnable(GL_MULTISAMPLE);
 		//glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);

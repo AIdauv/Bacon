@@ -17,6 +17,7 @@
 
 // ---Renderer---------------------------
 #include "Bacon/Renderer/Renderer.h"
+#include "Bacon/Renderer/Renderer2D.h"
 #include "Bacon/Renderer/RenderCommand.h"
 
 #include "Bacon/Renderer/Buffer.h"

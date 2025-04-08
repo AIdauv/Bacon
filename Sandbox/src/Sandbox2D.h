@@ -20,6 +20,7 @@ private:
 	// Temp
 	Bacon::Ref<Bacon::VertexArray> m_SquareVA;
 	Bacon::Ref<Bacon::Shader> m_FlatColorShader;
+
 	Bacon::Ref<Bacon::Texture2D> m_Texture;
 	Bacon::Ref<Bacon::Texture2D> m_CheckerboardTexture;
 
