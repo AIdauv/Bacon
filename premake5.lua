@@ -82,7 +82,7 @@ project "Bacon"
 
         defines
         {
-            "BC_PLATFORM_WINDOWS",
+            --"BC_PLATFORM_WINDOWS",
             "BC_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
         }

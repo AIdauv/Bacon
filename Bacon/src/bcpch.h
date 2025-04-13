@@ -15,6 +15,8 @@
 
 #include "Bacon/Core/Log.h"
 
+#include "Bacon/Debug/Instrumentor.h"
+
 #ifdef BC_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif // BC_PLATFORM_WINDOWS
