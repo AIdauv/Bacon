@@ -1,9 +1,7 @@
 #include <Bacon.h>
 #include <Bacon/Core/EntryPoint.h>
 
-#include "Platform/OpenGL/OpenGLShader.h"
-
-#include "imgui/imgui.h"
+#include <imgui/imgui.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -23,21 +21,17 @@ public:
 			 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
-		Bacon::Ref<Bacon::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Bacon::VertexBuffer::Create(vertices, sizeof(vertices)));
 
-
+		Bacon::Ref<Bacon::VertexBuffer> vertexBuffer = Bacon::VertexBuffer::Create(vertices, sizeof(vertices));
 		Bacon::BufferLayout layout = {
 			{Bacon::ShaderDataType::Float3, "a_Position"},
 			{Bacon::ShaderDataType::Float4, "a_Color"}
 		};
-
 		vertexBuffer->SetLayout(layout);
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		Bacon::Ref<Bacon::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Bacon::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		Bacon::Ref<Bacon::IndexBuffer> indexBuffer = Bacon::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = Bacon::VertexArray::Create();
@@ -49,8 +43,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Bacon::Ref<Bacon::VertexBuffer> squareVB;
-		squareVB.reset(Bacon::VertexBuffer::Create(SquareVertices, sizeof(SquareVertices)));
+		Bacon::Ref<Bacon::VertexBuffer> squareVB = Bacon::VertexBuffer::Create(SquareVertices, sizeof(SquareVertices));
 		squareVB->SetLayout({
 			{Bacon::ShaderDataType::Float3, "a_Position"},
 			{Bacon::ShaderDataType::Float2, "a_TexCoord"}
@@ -58,12 +51,12 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		Bacon::Ref<Bacon::IndexBuffer> squareIB;
-		squareIB.reset(Bacon::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		Bacon::Ref<Bacon::IndexBuffer> squareIB = Bacon::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
 			#version 330 core
+
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
 
@@ -83,6 +76,7 @@ public:
 
 		std::string fragmentSrc = R"(
 			#version 330 core
+
 			layout(location = 0) out vec4 color;
 
 			in vec3 v_Position;
@@ -99,12 +93,14 @@ public:
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
+
 			layout(location = 0) in vec3 a_Position;
 
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
 
-			out vec3 v_Position;			
+			out vec3 v_Position;
+			
 			void main()
 			{
 				v_Position = a_Position;
@@ -114,6 +110,7 @@ public:
 
 		std::string flatColorShaderFragmentSrc = R"(
 			#version 330 core
+
 			layout(location = 0) out vec4 color;
 
 			in vec3 v_Position;
@@ -133,10 +130,9 @@ public:
 		m_Texture = Bacon::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogoTexture = Bacon::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<Bacon::OpenGLShader>(textureShader)->Bind();
-		std::dynamic_pointer_cast<Bacon::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+		textureShader->Bind();
+		textureShader->SetInt("u_Texture", 0);
 	}
-
 
 	void OnUpdate(Bacon::Timestep ts) override
 	{
@@ -151,8 +147,8 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		std::dynamic_pointer_cast<Bacon::OpenGLShader>(m_FlatColorShader)->Bind();
-		std::dynamic_pointer_cast<Bacon::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 		for (int y = 0; y < 20; y++)
 		{
@@ -168,9 +164,9 @@ public:
 
 		m_Texture->Bind();
 		Bacon::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-
 		m_ChernoLogoTexture->Bind();
 		Bacon::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		
 		// Traiangle
 		//Bacon::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -180,12 +176,6 @@ public:
 	virtual void OnImGuiRender() override
 	{
 		ImGui::Begin("Settings");
-		//auto stats = Bacon::Renderer::GetStats();
-		//ImGui::Text("Renderer Stats:");
-		//ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-		//ImGui::Text("Quad Count: %d", stats.QuadCount);
-		//ImGui::Text("Vertex Count: %d", stats.GetTotalVertexCount());
-		//ImGui::Text("Index Count: %d", stats.GetTotalIndexCount());
 		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
 		ImGui::End();
 	}
@@ -205,7 +195,6 @@ private:
 	Bacon::Ref<Bacon::Texture2D> m_Texture, m_ChernoLogoTexture;
 
 	Bacon::OrthographicCameraController m_CameraController;
-
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
@@ -220,11 +209,7 @@ public:
 	
 	~Sandbox()
 	{
-
 	}
-
-private:
-
 };
 
 Bacon::Application* Bacon::CreateApplication()

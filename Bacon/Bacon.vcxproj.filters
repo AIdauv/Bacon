@@ -1420,6 +1420,7 @@
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\Bacon\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Core\Application.cpp">
@@ -1498,5 +1499,6 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\Bacon\Renderer\GraphicsContext.cpp" />
   </ItemGroup>
 </Project>

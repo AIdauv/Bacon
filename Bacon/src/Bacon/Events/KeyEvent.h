@@ -15,7 +15,7 @@ namespace Bacon {
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(int keycode, int mods)
+		KeyEvent(int keycode, int mods = None)
 			: m_KeyCode(keycode), m_mods(mods){}
 
 		int m_KeyCode;
@@ -25,7 +25,7 @@ namespace Bacon {
 	class BACON_API KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(int keycode, int mods, int repeatCount)
+		KeyPressedEvent(int keycode, int repeatCount, int mods = None)
 			: KeyEvent(keycode, mods), m_RepeatCount(repeatCount) {}
 
 		inline int GetRepeatCount() const { return m_RepeatCount; }
@@ -45,7 +45,7 @@ namespace Bacon {
 	class BACON_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(int keycode, int mods)
+		KeyReleasedEvent(int keycode, int mods = None)
 			: KeyEvent(keycode, mods) {}
 
 		std::string ToString() const override
@@ -61,7 +61,7 @@ namespace Bacon {
 	class BACON_API KeyTypedEvent : public KeyEvent
 	{
 	public:
-		KeyTypedEvent(int keycode, int mods)
+		KeyTypedEvent(int keycode, int mods = None)
 			: KeyEvent(keycode, mods) {
 		}
 

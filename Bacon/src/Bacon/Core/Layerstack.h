@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Bacon/Core/Core.h"
-#include "Layer.h"
+#include "Bacon/Core/Layer.h"
 
 #include <vector>
 
@@ -10,7 +10,7 @@ namespace Bacon {
 	class BACON_API LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);
@@ -24,4 +24,5 @@ namespace Bacon {
 		std::vector<Layer*> m_Layers;
 		unsigned int m_LayerInsertIndex = 0;
 	};
+
 }

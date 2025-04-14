@@ -155,6 +155,7 @@
     <ClInclude Include="src\Bacon\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Bacon\Core\Timestep.h" />
     <ClInclude Include="src\Bacon\Core\Window.h" />
+    <ClInclude Include="src\Bacon\Debug\Instrumentor.h" />
     <ClInclude Include="src\Bacon\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Bacon\Events\Event.h" />
     <ClInclude Include="src\Bacon\Events\KeyEvent.h" />
@@ -608,6 +609,7 @@
     <ClCompile Include="src\Bacon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Bacon\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Bacon\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Bacon\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Bacon\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Bacon\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Bacon\Renderer\RenderCommand.cpp" />
