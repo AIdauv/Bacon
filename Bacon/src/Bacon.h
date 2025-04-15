@@ -2,6 +2,8 @@
 
 // for use by Bacon applications
 
+#include "Bacon/Core/Core.h"
+
 #include "Bacon/Core/Application.h"
 #include "Bacon/Core/Layer.h"
 #include "Bacon/Core/Log.h"
@@ -10,7 +12,7 @@
 
 #include "Bacon/Core/Input.h"
 #include "Bacon/Core/KeyCodes.h"
-#include "Bacon/Core/MouseButtonCodes.h"
+#include "Bacon/Core/MouseCodes.h"
 #include "Bacon/Renderer/OrthographicCameraController.h"
 
 #include "Bacon/ImGui/ImGuiLayer.h"

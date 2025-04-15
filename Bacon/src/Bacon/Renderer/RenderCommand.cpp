@@ -1,9 +1,8 @@
 #include "bcpch.h"
-#include "RenderCommand.h"
-
-#include "platform/OpenGL/OpenGLRendererAPI.h"
+#include "Bacon/Renderer/RenderCommand.h"
 
 namespace Bacon{
 
-	RendererAPI* RenderCommand::s_RendererAPI = new OpenGLRendererAPI;
+	Scope<RendererAPI> RenderCommand::s_RendererAPI = RendererAPI::Create();
+
 }

@@ -8,6 +8,7 @@
 	#ifdef _WIN64
 		/* Windows x64  */
 		#define BC_PLATFORM_WINDOWS
+		#define FMT_UNICODE 0
 	#else
 		/* Windows x86 */
 		#error "x86 Builds are not supported!"
@@ -42,23 +43,6 @@
 	/* Unknown compiler/platform */
 	#error "Unknown platform!"
 #endif // End of platform detection
-
-
-// DLL support
-#ifdef BC_PLATFORM_WINDOWS
-	#define FMT_UNICODE 0
-	#if BC_DYNAMIC_LINK
-		#ifdef BC_BUILD_DLL
-			#define BACON_API __declspec(dllexport)
-		#else
-			#define BACON_API __declspec(dllimport)
-		#endif
-	#else
-		#define BACON_API
-	#endif
-#else
-	#error Hazel only supports Windows!
-#endif // End of DLL support
 
 #ifdef BC_DEBUG
 	#define BC_ENABLE_ASSERTS

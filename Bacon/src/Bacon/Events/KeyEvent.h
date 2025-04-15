@@ -1,32 +1,28 @@
 #pragma once
 
-#include "bcpch.h"
-
-#include "Event.h"
-
+#include "Bacon/Events/Event.h"
+#include "Bacon/Core/Input.h"
 
 namespace Bacon {
 
-	class BACON_API KeyEvent : public Event
+	class KeyEvent : public Event
 	{
 	public:
-		inline int GetKeyCode() const { return m_KeyCode; }
-		inline int GetMods() const { return m_mods; }
+		inline KeyCode GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(int keycode, int mods = None)
-			: m_KeyCode(keycode), m_mods(mods){}
+		KeyEvent(KeyCode keycode)
+			: m_KeyCode(keycode) {}
 
-		int m_KeyCode;
-		int m_mods;
+		KeyCode m_KeyCode;
 	};
 
-	class BACON_API KeyPressedEvent : public KeyEvent
+	class KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(int keycode, int repeatCount, int mods = None)
-			: KeyEvent(keycode, mods), m_RepeatCount(repeatCount) {}
+		KeyPressedEvent(KeyCode keycode, int repeatCount)
+			: KeyEvent(keycode), m_RepeatCount(repeatCount) {}
 
 		inline int GetRepeatCount() const { return m_RepeatCount; }
 
@@ -42,11 +38,11 @@ namespace Bacon {
 		int m_RepeatCount;
 	};
 
-	class BACON_API KeyReleasedEvent : public KeyEvent
+	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(int keycode, int mods = None)
-			: KeyEvent(keycode, mods) {}
+		KeyReleasedEvent(KeyCode keycode)
+			: KeyEvent(keycode) {}
 
 		std::string ToString() const override
 		{
@@ -58,12 +54,11 @@ namespace Bacon {
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class BACON_API KeyTypedEvent : public KeyEvent
+	class KeyTypedEvent : public KeyEvent
 	{
 	public:
-		KeyTypedEvent(int keycode, int mods = None)
-			: KeyEvent(keycode, mods) {
-		}
+		KeyTypedEvent(KeyCode keycode)
+			: KeyEvent(keycode) {}
 
 		std::string ToString() const override
 		{

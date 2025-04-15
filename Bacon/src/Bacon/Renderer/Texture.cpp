@@ -1,7 +1,7 @@
 #include "bcpch.h"
-#include "Texture.h"
+#include "Bacon/Renderer/Texture.h"
 
-#include "Renderer.h"
+#include "Bacon/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 namespace Bacon {

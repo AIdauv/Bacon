@@ -10,6 +10,9 @@
     <Filter Include="src\Bacon\Core">
       <UniqueIdentifier>{17FC9A5C-03CA-8E62-EC5D-FF88D8CA6AC7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Bacon\Debug">
+      <UniqueIdentifier>{15DA06F0-8165-74B4-8A76-F7A8F680D0B4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Bacon\Events">
       <UniqueIdentifier>{636F6CF4-4F68-8B46-789A-70CB64F26A52}</UniqueIdentifier>
     </Filter>
@@ -81,7 +84,7 @@
     <ClInclude Include="src\Bacon\Core\Log.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bacon\Core\MouseButtonCodes.h">
+    <ClInclude Include="src\Bacon\Core\MouseCodes.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Core\Timestep.h">
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="src\Bacon\Core\Window.h">
       <Filter>src\Bacon\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Debug\Instrumentor.h">
+      <Filter>src\Bacon\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Events\ApplicationEvent.h">
       <Filter>src\Bacon\Events</Filter>
@@ -121,6 +127,9 @@
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\Renderer.h">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Renderer\Renderer2D.h">
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\RendererAPI.h">
@@ -1419,11 +1428,12 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bacon\Renderer\Renderer2D.h" />
-    <ClInclude Include="src\Bacon\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Core\Application.cpp">
+      <Filter>src\Bacon\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Core\Input.cpp">
       <Filter>src\Bacon\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Core\Layer.cpp">
@@ -1435,6 +1445,9 @@
     <ClCompile Include="src\Bacon\Core\Log.cpp">
       <Filter>src\Bacon\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bacon\Core\Window.cpp">
+      <Filter>src\Bacon\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\Bacon\ImGui\ImGuiBuild.cpp">
       <Filter>src\Bacon\ImGui</Filter>
     </ClCompile>
@@ -1442,6 +1455,9 @@
       <Filter>src\Bacon\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\Buffer.cpp">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Renderer\GraphicsContext.cpp">
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\OrthographicCamera.cpp">
@@ -1454,6 +1470,9 @@
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\Renderer.cpp">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Renderer\Renderer2D.cpp">
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\RendererAPI.cpp">
@@ -1498,7 +1517,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Bacon\Renderer\Renderer2D.cpp" />
-    <ClCompile Include="src\Bacon\Renderer\GraphicsContext.cpp" />
   </ItemGroup>
 </Project>

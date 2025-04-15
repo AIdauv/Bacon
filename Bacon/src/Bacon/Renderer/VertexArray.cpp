@@ -1,7 +1,7 @@
 #include "bcpch.h"
-#include "VertexArray.h"
+#include "Bacon/Renderer/VertexArray.h"
 
-#include "Renderer.h"
+#include "Bacon/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
 
 namespace Bacon {
@@ -10,7 +10,7 @@ namespace Bacon {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    BC_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLVertexArray>();
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexArray>();
 		}
 		BC_CORE_ASSERT(false, "Unknown RendererAPI!");
 		return nullptr;

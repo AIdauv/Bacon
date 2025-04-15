@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RendererAPI.h"
+#include "Bacon/Renderer/RendererAPI.h"
 
 namespace Bacon {
 
@@ -31,7 +31,7 @@ namespace Bacon {
 			s_RendererAPI->DrawIndexed(vertexArray);
 		}
 	private:
-		static RendererAPI* s_RendererAPI;
+		static Scope<RendererAPI> s_RendererAPI;
 	};
 
 }

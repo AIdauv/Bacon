@@ -1,5 +1,5 @@
 workspace "Bacon"
-    architecture "x64"
+    architecture "x86_64"
     startproject "Sandbox"
 
     configurations 
@@ -138,7 +138,7 @@ project "Sandbox"
 
         defines
         {
-            "BC_PLATFORM_WINDOWS"
+            --"BC_PLATFORM_WINDOWS"
         }
 
 

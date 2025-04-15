@@ -1,6 +1,6 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "Bacon/Renderer/OrthographicCamera.h"
 
 #include "Bacon/Renderer/Texture.h"
 

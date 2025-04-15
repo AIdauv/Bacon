@@ -1,10 +1,11 @@
 #pragma once
+#include "Bacon/Core/Core.h"
 
 #ifdef BC_PLATFORM_WINDOWS
 
 extern Bacon::Application* Bacon::CreateApplication();
 
-int main()
+int main(int argc, char** argv)
 {
 	Bacon::Log::Init();
 
