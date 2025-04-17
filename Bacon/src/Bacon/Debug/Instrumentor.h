@@ -122,7 +122,7 @@ namespace Bacon {
     };
 }
 
-#define BC_PROFILE 1
+#define BC_PROFILE 0
 #if BC_PROFILE
     #define BC_PROFILE_BEGIN_SESSION(name, filepath) ::Bacon::Instrumentor::Get().BeginSession(name, filepath)
     #define BC_PROFILE_END_SESSION() ::Bacon::Instrumentor::Get().EndSession()

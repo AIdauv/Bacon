@@ -7,7 +7,6 @@ namespace Bacon {
 	class RenderCommand
 	{
 	public:
-
 		inline static void Init()
 		{
 			s_RendererAPI->Init();
@@ -22,13 +21,15 @@ namespace Bacon {
 		{
 			s_RendererAPI->SetClearColor(color);
 		}
+
 		inline static void Clear()
 		{
 			s_RendererAPI->Clear();
 		}
-		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray)
+
+		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t count = 0)
 		{
-			s_RendererAPI->DrawIndexed(vertexArray);
+			s_RendererAPI->DrawIndexed(vertexArray, count);
 		}
 	private:
 		static Scope<RendererAPI> s_RendererAPI;
