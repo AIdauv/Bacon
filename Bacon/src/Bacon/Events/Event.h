@@ -2,7 +2,7 @@
 
 #include "bcpch.h"
 
-#include "Bacon/Core/Core.h"
+#include "Bacon/Core/Base.h"
 
 namespace Bacon {
 

@@ -9,10 +9,14 @@ workspace "Bacon"
         "Dist"
     }
 
+    flags
+    {
+        "MultiProcessorCompile"
+    }
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-
+-- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Bacon/vendor/GLFW/include"
 IncludeDir["Glad"] = "Bacon/vendor/Glad/include"
@@ -20,9 +24,12 @@ IncludeDir["ImGui"] = "Bacon/vendor/imgui"
 IncludeDir["glm"] = "Bacon/vendor/glm"
 IncludeDir["stb_image"] = "Bacon/vendor/stb_image"
 
-include "Bacon/vendor/GLFW"
-include "Bacon/vendor/Glad"
-include "Bacon/vendor/imgui"
+group "Dependencies"
+    include "Bacon/vendor/GLFW"
+    include "Bacon/vendor/Glad"
+    include "Bacon/vendor/imgui"
+
+    group ""
 
 project "Bacon"
     location "Bacon"
@@ -49,7 +56,8 @@ project "Bacon"
 
     defines
     {
-        "_CRT_SECURE_NO_WARNINGS"
+        "_CRT_SECURE_NO_WARNINGS",
+        "GLFW_INCLUDE_NONE"
     }
 
     includedirs
@@ -69,24 +77,14 @@ project "Bacon"
         "Glad",
         "ImGui",
         "opengl32.lib",
-        --"gdi32",
-        --"user32",
-        --"shell32",
-        --"ole32",
-        --"Dwmapi.lib"
     }
 
     filter "system:windows"
         systemversion "latest"
-        --buildoptions { "/utf-8" }
 
         defines
         {
-            --"BC_PLATFORM_WINDOWS",
-            "BC_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
         }
-
 
     filter "configurations:Debug"
         defines "BC_DEBUG"
@@ -134,13 +132,6 @@ project "Sandbox"
 
     filter "system:windows"
         systemversion "latest"
-        --buildoptions { "/utf-8" }
-
-        defines
-        {
-            --"BC_PLATFORM_WINDOWS"
-        }
-
 
     filter "configurations:Debug"
         defines "BC_DEBUG"

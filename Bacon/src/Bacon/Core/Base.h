@@ -45,12 +45,22 @@
 #endif // End of platform detection
 
 #ifdef BC_DEBUG
+	#if defined(BC_PLATFORM_WINDOWS)
+		#define BC_DEBUGBREAK() __debugbreak()
+	#elif defined(BC_PLATFORM_LINUX)
+		#include <signal.h>
+		#define BC_DEBUGBREAK() raise(SIGTRAP)
+	#else
+		#error "Platform doesn't support debugbreak yet!"
+	#endif
 	#define BC_ENABLE_ASSERTS
+#else
+	#define BC_DEBUGBREAK()
 #endif
 
 #ifdef BC_ENABLE_ASSERTS
-	#define BC_ASSERT(x, ...) { if(!(x)) { BC_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-	#define BC_CORE_ASSERT(x, ...) { if(!(x)) { BC_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define BC_ASSERT(x, ...) { if(!(x)) { BC_ERROR("Assertion Failed: {0}", __VA_ARGS__); BC_DEBUGBREAK(); } }
+	#define BC_CORE_ASSERT(x, ...) { if(!(x)) { BC_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); BC_DEBUGBREAK(); } }
 #else
 	#define BC_ASSERT(x, ...)
 	#define BC_CORE_ASSERT(x, ...)

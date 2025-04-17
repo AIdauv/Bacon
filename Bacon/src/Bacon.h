@@ -2,7 +2,7 @@
 
 // for use by Bacon applications
 
-#include "Bacon/Core/Core.h"
+#include "Bacon/Core/Base.h"
 
 #include "Bacon/Core/Application.h"
 #include "Bacon/Core/Layer.h"

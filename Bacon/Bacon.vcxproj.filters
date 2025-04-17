@@ -63,7 +63,7 @@
     <ClInclude Include="src\Bacon\Core\Application.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bacon\Core\Core.h">
+    <ClInclude Include="src\Bacon\Core\Base.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Core\EntryPoint.h">

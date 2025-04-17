@@ -1,5 +1,5 @@
 #pragma once
-#include "Bacon/Core/Core.h"
+#include "Bacon/Core/Base.h"
 
 #ifdef BC_PLATFORM_WINDOWS
 
