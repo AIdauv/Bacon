@@ -1,6 +1,6 @@
 workspace "Bacon"
     architecture "x86_64"
-    startproject "Sandbox"
+    startproject "Skillet"
 
     configurations 
     {
@@ -28,8 +28,7 @@ group "Dependencies"
     include "Bacon/vendor/GLFW"
     include "Bacon/vendor/Glad"
     include "Bacon/vendor/imgui"
-
-    group ""
+group ""
 
 project "Bacon"
     location "Bacon"
@@ -103,6 +102,53 @@ project "Bacon"
 
 project "Sandbox"
     location "Sandbox"
+    kind "ConsoleApp"
+    language "C++"
+    cppdialect "C++20"
+    staticruntime"on"
+
+    targetdir("bin/" .. outputdir .. "/%{prj.name}")
+    objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+
+    files
+    {
+        "%{prj.name}/src/**.h",
+        "%{prj.name}/src/**.cpp"
+    }
+
+    includedirs
+    {
+        "Bacon/vendor/spdlog/include",
+        "Bacon/src",
+        "Bacon/vendor",
+        "%{IncludeDir.glm}"
+    }
+
+    links
+    {
+        "Bacon"
+    }
+
+    filter "system:windows"
+        systemversion "latest"
+
+    filter "configurations:Debug"
+        defines "BC_DEBUG"
+        runtime "Debug"
+        symbols "on"
+
+    filter "configurations:Release"
+        defines "BC_RELEASE"
+        runtime "Release"
+        optimize "on"
+
+    filter "configurations:Dist"
+        defines "BC_DIST"
+        runtime "Release"
+        optimize "on"
+
+project "Skillet"
+    location "Skillet"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++20"

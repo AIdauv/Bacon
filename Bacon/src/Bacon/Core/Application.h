@@ -18,7 +18,7 @@ namespace Bacon {
 	class Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "Bacon App");
 		virtual ~Application();
 
 		void OnEvent(Event& e);
@@ -27,6 +27,8 @@ namespace Bacon {
 		void PushOverlay(Layer* layer);
 
 		inline static Application& Get() { return *s_Instance; }
+
+		void Close();
 
 		inline Window& GetWindow() { return *m_Window; }
 	private:

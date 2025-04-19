@@ -24,6 +24,7 @@
 
 #include "Bacon/Renderer/Buffer.h"
 #include "Bacon/Renderer/Shader.h"
+#include "Bacon/Renderer/Framebuffer.h"
 #include "Bacon/Renderer/Texture.h"
 #include "Bacon/Renderer/VertexArray.h"
 

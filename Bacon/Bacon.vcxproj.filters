@@ -114,6 +114,9 @@
     <ClInclude Include="src\Bacon\Renderer\Buffer.h">
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\Renderer\Framebuffer.h">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\GraphicsContext.h">
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
@@ -148,6 +151,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
@@ -1457,6 +1463,9 @@
     <ClCompile Include="src\Bacon\Renderer\Buffer.cpp">
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bacon\Renderer\Framebuffer.cpp">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\GraphicsContext.cpp">
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
@@ -1491,6 +1500,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
