@@ -66,18 +66,18 @@ void Sandbox2D::OnImGuiRender()
 {
 	BC_PROFILE_FUNCTION();
 
-		ImGui::Begin("Settings");
+	ImGui::Begin("Settings");
 
-		auto stats = Bacon::Renderer2D::GetStats();
-		ImGui::Text("Renderer2D Stats:");
-		ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-		ImGui::Text("Quads: %d", stats.QuadCount);
-		ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
-		ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
+	auto stats = Bacon::Renderer2D::GetStats();
+	ImGui::Text("Renderer2D Stats:");
+	ImGui::Text("Draw Calls: %d", stats.DrawCalls);
+	ImGui::Text("Quads: %d", stats.QuadCount);
+	ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
+	ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
 
-		ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
-		ImGui::End();
-	}
+	ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
+	ImGui::End();
+}
 
 void Sandbox2D::OnEvent(Bacon::Event& e)
 {
