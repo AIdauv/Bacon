@@ -23,6 +23,7 @@ IncludeDir["Glad"] = "Bacon/vendor/Glad/include"
 IncludeDir["ImGui"] = "Bacon/vendor/imgui"
 IncludeDir["glm"] = "Bacon/vendor/glm"
 IncludeDir["stb_image"] = "Bacon/vendor/stb_image"
+IncludeDir["entt"] = "Bacon/vendor/entt/include"
 
 group "Dependencies"
     include "Bacon/vendor/GLFW"
@@ -67,7 +68,8 @@ project "Bacon"
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
         "%{IncludeDir.glm}",
-        "%{IncludeDir.stb_image}"
+        "%{IncludeDir.stb_image}",
+        "%{IncludeDir.entt}"
     }
 
     links 
@@ -121,7 +123,8 @@ project "Sandbox"
         "Bacon/vendor/spdlog/include",
         "Bacon/src",
         "Bacon/vendor",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.entt}"
     }
 
     links
@@ -168,7 +171,8 @@ project "Skillet"
         "Bacon/vendor/spdlog/include",
         "Bacon/src",
         "Bacon/vendor",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.entt}"
     }
 
     links

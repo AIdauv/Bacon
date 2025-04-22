@@ -58,6 +58,7 @@
 	#define BC_DEBUGBREAK()
 #endif
 
+// TODO: Make this macro able to take in no arguments except condition
 #ifdef BC_ENABLE_ASSERTS
 	#define BC_ASSERT(x, ...) { if(!(x)) { BC_ERROR("Assertion Failed: {0}", __VA_ARGS__); BC_DEBUGBREAK(); } }
 	#define BC_CORE_ASSERT(x, ...) { if(!(x)) { BC_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); BC_DEBUGBREAK(); } }
@@ -68,7 +69,7 @@
 
 #define BIT(x) (1 << x)
 
-#define BC_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+#define BC_BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 
 namespace Bacon {
 
