@@ -157,6 +157,7 @@
     <ClInclude Include="src\Bacon\Core\Layerstack.h" />
     <ClInclude Include="src\Bacon\Core\Log.h" />
     <ClInclude Include="src\Bacon\Core\MouseCodes.h" />
+    <ClInclude Include="src\Bacon\Core\PlatformDetection.h" />
     <ClInclude Include="src\Bacon\Core\Timestep.h" />
     <ClInclude Include="src\Bacon\Core\Window.h" />
     <ClInclude Include="src\Bacon\Debug\Instrumentor.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="src\Bacon\Events\MouseEvent.h" />
     <ClInclude Include="src\Bacon\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Bacon\Renderer\Buffer.h" />
+    <ClInclude Include="src\Bacon\Renderer\Camera.h" />
     <ClInclude Include="src\Bacon\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Bacon\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Bacon\Renderer\OrthographicCamera.h" />
@@ -180,6 +182,8 @@
     <ClInclude Include="src\Bacon\Scene\Components.h" />
     <ClInclude Include="src\Bacon\Scene\Entity.h" />
     <ClInclude Include="src\Bacon\Scene\Scene.h" />
+    <ClInclude Include="src\Bacon\Scene\SceneCamera.h" />
+    <ClInclude Include="src\Bacon\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
@@ -631,6 +635,7 @@
     <ClCompile Include="src\Bacon\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Bacon\Scene\Entity.cpp" />
     <ClCompile Include="src\Bacon\Scene\Scene.cpp" />
+    <ClCompile Include="src\Bacon\Scene\SceneCamera.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />

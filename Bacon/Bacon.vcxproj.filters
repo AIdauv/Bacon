@@ -1434,6 +1434,10 @@
     <ClInclude Include="src\Bacon\Scene\Scene.h" />
     <ClInclude Include="src\Bacon\Scene\Components.h" />
     <ClInclude Include="src\Bacon\Scene\Entity.h" />
+    <ClInclude Include="src\Bacon\Renderer\Camera.h" />
+    <ClInclude Include="src\Bacon\Scene\SceneCamera.h" />
+    <ClInclude Include="src\Bacon\Scene\ScriptableEntity.h" />
+    <ClInclude Include="src\Bacon\Core\PlatformDetection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Core\Application.cpp">
@@ -1528,5 +1532,6 @@
     </ClCompile>
     <ClCompile Include="src\Bacon\Scene\Scene.cpp" />
     <ClCompile Include="src\Bacon\Scene\Entity.cpp" />
+    <ClCompile Include="src\Bacon\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>

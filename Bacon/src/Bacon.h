@@ -19,6 +19,7 @@
 
 #include "Bacon/Scene/Scene.h"
 #include "Bacon/Scene/Entity.h"
+#include "Bacon/Scene/ScriptableEntity.h"
 #include "Bacon/Scene/Components.h"
 
 // ---Renderer---------------------------

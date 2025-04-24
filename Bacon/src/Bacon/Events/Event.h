@@ -1,6 +1,8 @@
 #pragma once
 
-#include "bcpch.h"
+#include <functional>
+
+#include "Bacon/Debug/Instrumentor.h"
 
 #include "Bacon/Core/Base.h"
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "bcpch.h"
+#include <sstream>
 
 #include "Bacon/Core/Base.h"
 #include "Bacon/Events/Event.h"
