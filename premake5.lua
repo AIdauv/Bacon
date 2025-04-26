@@ -12,9 +12,9 @@ workspace "Bacon"
     }
 
     solution_items
- 	{
- 		".editorconfig"
- 	}
+    {
+        ".editorconfig"
+    }
 
     flags
     {
