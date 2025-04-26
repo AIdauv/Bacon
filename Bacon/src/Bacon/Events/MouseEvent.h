@@ -44,7 +44,7 @@ namespace Bacon {
 		}
 
 		EVENT_CLASS_TYPE(MouseButtonScrolled)
-		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput | EventCategoryMouseButton)
 	private:
 		float m_XOffset, m_YOffset;
 	};

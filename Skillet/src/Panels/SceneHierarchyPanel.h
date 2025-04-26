@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Bacon/Core/Base.h"
-#include "Bacon/Core/Log.h"
 #include "Bacon/Scene/Scene.h"
 #include "Bacon/Scene/Entity.h"
 

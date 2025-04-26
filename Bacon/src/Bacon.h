@@ -7,6 +7,7 @@
 #include "Bacon/Core/Application.h"
 #include "Bacon/Core/Layer.h"
 #include "Bacon/Core/Log.h"
+#include "Bacon/Core/Assert.h"
 
 #include "Bacon/Core/Timestep.h"
 

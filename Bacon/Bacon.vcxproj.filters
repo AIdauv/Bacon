@@ -22,6 +22,9 @@
     <Filter Include="src\Bacon\Renderer">
       <UniqueIdentifier>{E5E240B8-D1C6-010E-3A27-FC60262AEC8F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Bacon\Scene">
+      <UniqueIdentifier>{BC3C15F1-28C8-82B5-31D9-05AA9DE3DEB5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
@@ -63,6 +66,9 @@
     <ClInclude Include="src\Bacon\Core\Application.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\Core\Assert.h">
+      <Filter>src\Bacon\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bacon\Core\Base.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
@@ -85,6 +91,9 @@
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Core\MouseCodes.h">
+      <Filter>src\Bacon\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Core\PlatformDetection.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Core\Timestep.h">
@@ -112,6 +121,9 @@
       <Filter>src\Bacon\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\Buffer.h">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Renderer\Camera.h">
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\Framebuffer.h">
@@ -146,6 +158,24 @@
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\VertexArray.h">
       <Filter>src\Bacon\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Scene\Components.h">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Scene\Entity.h">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Scene\Scene.h">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Scene\SceneCamera.h">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Scene\SceneSerializer.h">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Scene\ScriptableEntity.h">
+      <Filter>src\Bacon\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1431,13 +1461,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bacon\Scene\Scene.h" />
-    <ClInclude Include="src\Bacon\Scene\Components.h" />
-    <ClInclude Include="src\Bacon\Scene\Entity.h" />
-    <ClInclude Include="src\Bacon\Renderer\Camera.h" />
-    <ClInclude Include="src\Bacon\Scene\SceneCamera.h" />
-    <ClInclude Include="src\Bacon\Scene\ScriptableEntity.h" />
-    <ClInclude Include="src\Bacon\Core\PlatformDetection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Core\Application.cpp">
@@ -1497,6 +1520,18 @@
     <ClCompile Include="src\Bacon\Renderer\VertexArray.cpp">
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bacon\Scene\Entity.cpp">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Scene\Scene.cpp">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Scene\SceneCamera.cpp">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Scene\SceneSerializer.cpp">
+      <Filter>src\Bacon\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1530,8 +1565,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Bacon\Scene\Scene.cpp" />
-    <ClCompile Include="src\Bacon\Scene\Entity.cpp" />
-    <ClCompile Include="src\Bacon\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>

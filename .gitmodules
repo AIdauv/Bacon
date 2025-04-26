@@ -12,3 +12,6 @@
 [submodule "Bacon/vendor/glm"]
 	path = Bacon/vendor/glm
 	url = https://github.com/g-truc/glm
+[submodule "Bacon/vendor/yaml-cpp"]
+	path = Bacon/vendor/yaml-cpp
+	url = https://github.com/AIdauv/yaml-cpp

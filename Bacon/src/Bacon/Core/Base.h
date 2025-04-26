@@ -18,14 +18,8 @@
 	#define BC_DEBUGBREAK()
 #endif
 
-// TODO: Make this macro able to take in no arguments except condition
-#ifdef BC_ENABLE_ASSERTS
-	#define BC_ASSERT(x, ...) { if(!(x)) { BC_ERROR("Assertion Failed: {0}", __VA_ARGS__); BC_DEBUGBREAK(); } }
-	#define BC_CORE_ASSERT(x, ...) { if(!(x)) { BC_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); BC_DEBUGBREAK(); } }
-#else
-	#define BC_ASSERT(x, ...)
-	#define BC_CORE_ASSERT(x, ...)
-#endif
+#define BC_EXPAND_MACRO(x) x
+#define BC_STRINGIFY_MACRO(x) #x
 
 #define BIT(x) (1 << x)
 
@@ -50,3 +44,6 @@ namespace Bacon {
 	}
 
 }
+
+#include "Bacon/Core/Log.h"
+#include "Bacon/Core/Assert.h"
