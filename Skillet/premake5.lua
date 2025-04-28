@@ -20,6 +20,7 @@ project "Skillet"
         "%{wks.location}/Bacon/vendor",
         "%{IncludeDir.glm}",
         "%{IncludeDir.entt}",
+        "%{IncludeDir.ImGuizmo}"
     }
 
     links

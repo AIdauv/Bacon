@@ -15,3 +15,6 @@
 [submodule "Bacon/vendor/yaml-cpp"]
 	path = Bacon/vendor/yaml-cpp
 	url = https://github.com/AIdauv/yaml-cpp
+[submodule "Bacon/vendor/ImGuizmo"]
+	path = Bacon/vendor/ImGuizmo
+	url = https://github.com/AIdauv/ImGuizmo

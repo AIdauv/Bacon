@@ -3,6 +3,8 @@
 #include "Bacon.h"
 #include "Panels/SceneHierarchyPanel.h"
 
+#include "Bacon/Renderer/EditorCamera.h"
+
 namespace Bacon{
 
 	class EditorLayer : public Layer
@@ -18,6 +20,12 @@ namespace Bacon{
 		virtual void OnImGuiRender() override;
 		virtual void OnEvent(Event& e) override;
 	private:
+		bool OnKeyPressed(KeyPressedEvent& e);
+
+		void NewScene();
+		void OpenScene();
+		void SaveSceneAs();
+	private:
 		OrthographicCameraController m_CameraController;
 
 		// Temp
@@ -32,12 +40,17 @@ namespace Bacon{
 
 		bool m_PrimaryCamera = true;
 
+		EditorCamera m_EditorCamera;
+
 		Ref<Texture2D> m_CheckerboardTexture;
 
 		bool m_ViewportFocused = false, m_ViewportHovered = false;
 		glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
+		glm::vec2 m_ViewportBounds[2];
 
 		glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+
+		int m_GizmoType = -1;
 
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
