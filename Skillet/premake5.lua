@@ -2,7 +2,7 @@ project "Skillet"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++20"
-    staticruntime"on"
+    staticruntime"off"
 
     targetdir("%{wks.location}/bin/" .. outputdir .. "/")
     objdir("%{wks.location}/bin-int/" .. outputdir .. "/")

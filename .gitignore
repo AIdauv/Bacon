@@ -3,7 +3,7 @@
 !vendor/premake/bin/
 bin-int/
 
-# Hazel files
+# Bacon files
 *.log
 
 # Visual Studio files and folder
@@ -12,3 +12,8 @@ bin-int/
 **.vcxproj
 **.vcxproj.filters
 **.vcxproj.user
+
+# Directories
+Bacon/vendor/VulkanSDK
+Skillet/assets/cache
+scripts/__pycache__

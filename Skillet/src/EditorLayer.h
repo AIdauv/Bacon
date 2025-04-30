@@ -2,6 +2,7 @@
 
 #include "Bacon.h"
 #include "Panels/SceneHierarchyPanel.h"
+#include "Panels/ContentBrowserPanel.h"
 
 #include "Bacon/Renderer/EditorCamera.h"
 
@@ -21,10 +22,18 @@ namespace Bacon{
 		virtual void OnEvent(Event& e) override;
 	private:
 		bool OnKeyPressed(KeyPressedEvent& e);
+		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
 		void NewScene();
 		void OpenScene();
+		void OpenScene(const std::filesystem::path& path);
 		void SaveSceneAs();
+
+		void OnScenePlay();
+		void OnSceneStop();
+
+		// UI Panels
+		void UI_Toolbar();
 	private:
 		OrthographicCameraController m_CameraController;
 
@@ -37,6 +46,8 @@ namespace Bacon{
 		Entity m_SquareEntity;
 		Entity m_CameraEntity;
 		Entity m_SecondCamera;
+
+		Entity m_HoveredEntity;
 
 		bool m_PrimaryCamera = true;
 
@@ -52,8 +63,19 @@ namespace Bacon{
 
 		int m_GizmoType = -1;
 
+		enum class SceneState
+		{
+			Edit = 0, Play = 1
+		};
+		SceneState m_SceneState = SceneState::Edit;
+
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
+		ContentBrowserPanel m_ContentBrowserPanel;
+
+		// Editor resources
+		Ref<Texture2D> m_IconPlay, m_IconStop;
 	};
+
 }
 

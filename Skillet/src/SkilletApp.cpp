@@ -8,8 +8,8 @@ namespace Bacon {
     class Skillet : public Application
     {
     public:
-        Skillet()
-            : Application("Skillet")
+        Skillet(ApplicationCommandLineArgs args)
+            : Application("Skillet", args)
         {
             PushLayer(new EditorLayer());
         }
@@ -19,9 +19,9 @@ namespace Bacon {
         }
     };
 
-    Application* CreateApplication()
+	Application* CreateApplication(ApplicationCommandLineArgs args)
     {
-        return new Skillet();
+        return new Skillet(args);
     }
 
 }

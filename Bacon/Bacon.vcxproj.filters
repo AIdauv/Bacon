@@ -19,6 +19,9 @@
     <Filter Include="src\Bacon\ImGui">
       <UniqueIdentifier>{C94465F0-35D0-D2B4-3EE1-55A9AAEB2EB5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Bacon\Math">
+      <UniqueIdentifier>{983CA05C-840A-9462-6D9E-0489590B70C7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Bacon\Renderer">
       <UniqueIdentifier>{E5E240B8-D1C6-010E-3A27-FC60262AEC8F}</UniqueIdentifier>
     </Filter>
@@ -102,6 +105,9 @@
     <ClInclude Include="src\Bacon\Core\PlatformDetection.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\Core\Timer.h">
+      <Filter>src\Bacon\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bacon\Core\Timestep.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
@@ -126,10 +132,16 @@
     <ClInclude Include="src\Bacon\ImGui\ImGuiLayer.h">
       <Filter>src\Bacon\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\Math\Math.h">
+      <Filter>src\Bacon\Math</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\Buffer.h">
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\Camera.h">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Renderer\EditorCamera.h">
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\Framebuffer.h">
@@ -160,6 +172,9 @@
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\Texture.h">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Renderer\UniformBuffer.h">
       <Filter>src\Bacon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Renderer\VertexArray.h">
@@ -202,6 +217,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
@@ -1473,8 +1491,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bacon\Math\Math.h" />
-    <ClInclude Include="src\Bacon\Renderer\EditorCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Core\Application.cpp">
@@ -1498,7 +1514,13 @@
     <ClCompile Include="src\Bacon\ImGui\ImGuiLayer.cpp">
       <Filter>src\Bacon\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bacon\Math\Math.cpp">
+      <Filter>src\Bacon\Math</Filter>
+    </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\Buffer.cpp">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Renderer\EditorCamera.cpp">
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\Framebuffer.cpp">
@@ -1529,6 +1551,9 @@
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\Texture.cpp">
+      <Filter>src\Bacon\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Renderer\UniformBuffer.cpp">
       <Filter>src\Bacon\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Renderer\VertexArray.cpp">
@@ -1564,6 +1589,9 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1585,7 +1613,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Bacon\Math\Math.cpp" />
-    <ClCompile Include="src\Bacon\Renderer\EditorCamera.cpp" />
   </ItemGroup>
 </Project>

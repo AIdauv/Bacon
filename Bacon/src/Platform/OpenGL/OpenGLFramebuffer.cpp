@@ -76,7 +76,7 @@ namespace Bacon {
 			return false;
 		}
 
-		static GLenum HazelFBTextureFormatToGL(FramebufferTextureFormat format)
+		static GLenum BaconFBTextureFormatToGL(FramebufferTextureFormat format)
 		{
 			switch (format)
 			{
@@ -219,7 +219,7 @@ namespace Bacon {
 
 		auto& spec = m_ColorAttachmentSpecifications[attachmentIndex];
 		glClearTexImage(m_ColorAttachments[attachmentIndex], 0,
-			Utils::HazelFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value);
+			Utils::BaconFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value);
 	}
 
 }
