@@ -10,6 +10,19 @@
 
 namespace Bacon {
 
+	static b2BodyType Rigidbody2DTypeToBox2DBody(Rigidbody2DComponent::BodyType bodyType)
+	{
+		switch (bodyType)
+		{
+		case Rigidbody2DComponent::BodyType::Static:    return b2_staticBody;
+		case Rigidbody2DComponent::BodyType::Dynamic:   return b2_dynamicBody;
+		case Rigidbody2DComponent::BodyType::Kinematic: return b2_kinematicBody;
+		}
+
+		BC_CORE_ASSERT(false, "Unknown body type");
+		return b2_staticBody;
+	}
+
     Scene::Scene()
     {
     }
@@ -32,6 +45,51 @@ namespace Bacon {
         m_Registry.destroy(entity);
     }
 
+	void Scene::OnRuntimeStart()
+	{
+		b2WorldDef worldDef = b2DefaultWorldDef();
+		worldDef.gravity = { 0.0f, -9.8f };
+		m_PhysicsWorld = b2CreateWorld(&worldDef);
+
+		auto view = m_Registry.view<Rigidbody2DComponent>();
+		for (auto e : view)
+		{
+			Entity entity = { e, this };
+			auto& transform = entity.GetComponent<TransformComponent>();
+			auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
+
+			b2BodyDef bodyDef = b2DefaultBodyDef();
+			bodyDef.type = Rigidbody2DTypeToBox2DBody(rb2d.Type);
+			bodyDef.position ={ transform.Translation.x, transform.Translation.y };
+			bodyDef.rotation = b2MakeRot(transform.Rotation.z);
+			bodyDef.fixedRotation = rb2d.FixedRotation;
+
+			b2BodyId body = b2CreateBody(m_PhysicsWorld, &bodyDef);
+			rb2d.RuntimeBody = body;
+
+			if (entity.HasComponent<BoxCollider2DComponent>())
+			{
+				auto& bc2d = entity.GetComponent<BoxCollider2DComponent>();
+
+				b2Polygon boxShape = b2MakeBox(bc2d.Size.x * transform.Scale.x, bc2d.Size.y * transform.Scale.y);
+
+				b2ShapeDef shapeDef = b2DefaultShapeDef();
+				shapeDef.density = bc2d.Density;
+				shapeDef.material.friction = bc2d.Friction;
+				shapeDef.material.restitution = bc2d.Restitution;
+				//TODO(me): add restitutionThreshold
+
+				b2CreatePolygonShape(body, &shapeDef, &boxShape);
+			}
+		}
+	}
+
+	void Scene::OnRuntimeStop()
+	{
+		b2DestroyWorld(m_PhysicsWorld);
+		m_PhysicsWorld = b2_nullWorldId;
+	}
+
 	void Scene::OnUpdateRuntime(Timestep ts)
     {
         // Update scripts
@@ -49,6 +107,27 @@ namespace Bacon {
                     nsc.Instance->OnUpdate(ts);
                 });
         }
+
+		// Physics
+		{
+			const int32_t subStepCount = 4;
+			b2World_Step(m_PhysicsWorld, ts, subStepCount);
+
+			// Retrieve transform from Box2D
+			auto view = m_Registry.view<Rigidbody2DComponent>();
+			for (auto e : view)
+			{
+				Entity entity = { e, this };
+				auto& transform = entity.GetComponent<TransformComponent>();
+				auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
+
+				b2BodyId body = rb2d.RuntimeBody;
+				const auto& position = b2Body_GetPosition(body);
+				transform.Translation.x = position.x;
+				transform.Translation.y = position.y;
+				transform.Rotation.z = b2Rot_GetAngle(b2Body_GetRotation(body));
+			}
+		}
 
         // Render 2D
         Camera* mainCamera = nullptr;
@@ -160,5 +239,15 @@ namespace Bacon {
     void Scene::OnComponentAdded<NativeScriptComponent>(Entity entity, NativeScriptComponent& component)
     {
     }
+
+	template<>
+	void Scene::OnComponentAdded<Rigidbody2DComponent>(Entity entity, Rigidbody2DComponent& component)
+	{
+	}
+
+	template<>
+	void Scene::OnComponentAdded<BoxCollider2DComponent>(Entity entity, BoxCollider2DComponent& component)
+	{
+	}
 
 }

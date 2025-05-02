@@ -2,20 +2,11 @@ Scene: Untitled
 Entities:
   - Entity: 12837192831273
     TagComponent:
-      Tag: GREEN
-    TransformComponent:
-      Translation: [1.8240738, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [0.20759976, 0.8146718, 0.21697539, 1]
-  - Entity: 12837192831273
-    TagComponent:
-      Tag: CAMERA
+      Tag: Empty Entity
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
-      Scale: [0.001, 1, 1]
+      Scale: [1, 1, 1]
     CameraComponent:
       Camera:
         ProjectionType: 1
@@ -31,8 +22,17 @@ Entities:
     TagComponent:
       Tag: RED
     TransformComponent:
-      Translation: [0, 1.5661125, 0]
+      Translation: [-1.1406064, 0.38024902, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [0.87258685, 0.165084, 0.165084, 1]
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: GREEN
+    TransformComponent:
+      Translation: [0.21056485, -0.947502, -0.1]
+      Rotation: [0, 0, 0]
+      Scale: [8.210784, 1.2157044, 1]
+    SpriteRendererComponent:
+      Color: [0.20759976, 0.8146718, 0.21697539, 1]

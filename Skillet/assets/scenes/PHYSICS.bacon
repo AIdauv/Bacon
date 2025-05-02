@@ -1,0 +1,47 @@
+Scene: Untitled
+Entities:
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: CAMERA
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 1
+        PerspectiveFOV: 0.7853982
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: SQUARE
+    TransformComponent:
+      Translation: [-1.0418749, 3.344482, 0]
+      Rotation: [0, 0, 2.2108555]
+      Scale: [0.37315592, 0.37315592, 0.37317562]
+    SpriteRendererComponent:
+      Color: [0.33498448, 0.8146718, 0.26736334, 1]
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: BAR
+    TransformComponent:
+      Translation: [-1.6418884, 0.60651064, 0]
+      Rotation: [0, 0, 0.684875]
+      Scale: [0.2, 3.5, 1]
+    SpriteRendererComponent:
+      Color: [0.9150579, 0.30030856, 0.30030856, 1]
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: BAR2
+    TransformComponent:
+      Translation: [0.3054788, -0.38317144, 0]
+      Rotation: [0, 0, 0.63980556]
+      Scale: [18.698092, 0.44800037, 0.94079995]
+    SpriteRendererComponent:
+      Color: [0.18416543, 0.6661663, 0.6718147, 1]

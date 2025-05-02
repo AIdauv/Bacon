@@ -5,6 +5,9 @@
 
 #include "entt.hpp"
 
+// Box2D
+#include "box2d/box2d.h"
+
 namespace Bacon {
 
     class Entity;
@@ -18,6 +21,9 @@ namespace Bacon {
         Entity CreateEntity(const std::string& name = std::string());
         void DestroyEntity(Entity entity);
 
+		void OnRuntimeStart();
+		void OnRuntimeStop();
+
 		void OnUpdateRuntime(Timestep ts);
 		void OnUpdateEditor(Timestep ts, EditorCamera& camera);
         void OnViewportResize(uint32_t width, uint32_t height);
@@ -29,6 +35,8 @@ namespace Bacon {
     private:
         entt::registry m_Registry;
         uint32_t m_ViewportWidth = 0, m_ViewportHeight = 0;
+
+		b2WorldId m_PhysicsWorld = b2_nullWorldId;
 
         friend class Entity;
 		friend class SceneSerializer;
