@@ -1,16 +1,28 @@
 #pragma once
 
+#include "SceneCamera.h"
+#include "Bacon/Core/UUID.h"
+#include "Bacon/Renderer/Texture.h"
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>
 
-#include "SceneCamera.h"
-#include "ScriptableEntity.h"
-#include "Bacon/Renderer/Texture.h"
+#include "box2d/id.h"
 
 namespace Bacon {
+
+	struct IDComponent
+	{
+		UUID ID;
+
+		IDComponent() = default;
+		IDComponent(const IDComponent&) = default;
+		IDComponent(const UUID& id) 
+			: ID(id) {}
+	};
 
     struct TagComponent
     {
@@ -55,6 +67,16 @@ namespace Bacon {
             : Color(color) {}
     };
 
+	struct CircleRendererComponent
+	{
+		glm::vec4 Color{ 1.0f, 1.0f, 1.0f, 1.0f };
+		float Thickness = 1.0f;
+		float Fade = 0.005f;
+
+		CircleRendererComponent() = default;
+		CircleRendererComponent(const CircleRendererComponent&) = default;
+	};
+
     struct CameraComponent
     {
         SceneCamera Camera;
@@ -64,6 +86,9 @@ namespace Bacon {
         CameraComponent() = default;
         CameraComponent(const CameraComponent&) = default;
     };
+
+	// Forward declaration
+	class ScriptableEntity;
 
     struct NativeScriptComponent
     {
@@ -111,6 +136,24 @@ namespace Bacon {
 
 		BoxCollider2DComponent() = default;
 		BoxCollider2DComponent(const BoxCollider2DComponent&) = default;
+	};
+
+	struct CircleCollider2DComponent
+	{
+		glm::vec2 Offset = { 0.0f, 0.0f };
+		float Radius = 0.5f;
+
+		// TODO(Yan): move into physics material in the future maybe
+		float Density = 1.0f;
+		float Friction = 0.5f;
+		float Restitution = 0.0f;
+		float RestitutionThreshold = 0.5f;
+
+		// Storage for runtime
+		void* RuntimeFixture = nullptr;
+
+		CircleCollider2DComponent() = default;
+		CircleCollider2DComponent(const CircleCollider2DComponent&) = default;
 	};
 
 }

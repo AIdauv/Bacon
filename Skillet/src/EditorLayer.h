@@ -24,13 +24,20 @@ namespace Bacon{
 		bool OnKeyPressed(KeyPressedEvent& e);
 		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
+		void OnOverlayRender();
+
 		void NewScene();
 		void OpenScene();
 		void OpenScene(const std::filesystem::path& path);
+		void SaveScene();
 		void SaveSceneAs();
+
+		void SerializeScene(Ref<Scene> scene, const std::filesystem::path& path);
 
 		void OnScenePlay();
 		void OnSceneStop();
+
+		void OnDuplicateEntity();
 
 		// UI Panels
 		void UI_Toolbar();
@@ -43,6 +50,8 @@ namespace Bacon{
 		Ref<Framebuffer> m_Framebuffer;
 
 		Ref<Scene> m_ActiveScene;
+		Ref<Scene> m_EditorScene;
+		std::filesystem::path m_EditorScenePath;
 		Entity m_SquareEntity;
 		Entity m_CameraEntity;
 		Entity m_SecondCamera;
@@ -62,6 +71,8 @@ namespace Bacon{
 		glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
 		int m_GizmoType = -1;
+
+		bool m_ShowPhysicsColliders = false;
 
 		enum class SceneState
 		{

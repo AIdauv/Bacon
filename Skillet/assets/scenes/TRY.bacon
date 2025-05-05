@@ -1,0 +1,98 @@
+Scene: Untitled
+Entities:
+  - Entity: 5853026103041691346
+    TagComponent:
+      Tag: CIRCLE
+    TransformComponent:
+      Translation: [-4.636566, -5.4260283, -6.1035156e-05]
+      Rotation: [0, 0, 0]
+      Scale: [2.5, 2.5, 1]
+    CircleRendererComponent:
+      Color: [0.3025149, 0.5569617, 0.8610039, 1]
+      Thickness: 1
+      Fade: 0.005
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 3]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 7792844112431562020
+    TagComponent:
+      Tag: SQUARE
+    TransformComponent:
+      Translation: [0.985291, 5.129204, 0]
+      Rotation: [0, 0, -3.848409e-07]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [0.15362023, 0.8841699, 0.588001, 1]
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 1
+      RestitutionThreshold: 0.5
+  - Entity: 18196325117388541487
+    TagComponent:
+      Tag: BAR
+    TransformComponent:
+      Translation: [-2.1239223, -5.4110117, 0]
+      Rotation: [0, 0, -0.48070657]
+      Scale: [8.9000025, 0.3, 1]
+    SpriteRendererComponent:
+      Color: [0.8108108, 0.122091204, 0.122091204, 1]
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 10046207794907758629
+    TagComponent:
+      Tag: CAMERA
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 1
+        PerspectiveFOV: 0.7853982
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+  - Entity: 9800821999443532555
+    TagComponent:
+      Tag: BAR
+    TransformComponent:
+      Translation: [1.4901161e-08, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [8.9, 0.3, 1]
+    SpriteRendererComponent:
+      Color: [0.8108108, 0.122091204, 0.122091204, 1]
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
