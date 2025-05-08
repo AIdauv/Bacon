@@ -111,6 +111,9 @@
     <ClInclude Include="src\Bacon\Core\Timestep.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\Core\UUID.h">
+      <Filter>src\Bacon\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bacon\Core\Window.h">
       <Filter>src\Bacon\Core</Filter>
     </ClInclude>
@@ -1491,7 +1494,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bacon\Core\UUID.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Core\Application.cpp">
@@ -1504,6 +1506,9 @@
       <Filter>src\Bacon\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Core\Log.cpp">
+      <Filter>src\Bacon\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\Core\UUID.cpp">
       <Filter>src\Bacon\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Core\Window.cpp">
@@ -1614,6 +1619,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Bacon\Core\UUID.cpp" />
   </ItemGroup>
 </Project>

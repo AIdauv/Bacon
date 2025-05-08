@@ -1,14 +1,18 @@
 #include "bcpch.h"
 #include "Bacon/Utils/PlatformUtils.h"
+#include "Bacon/Core/Application.h"
 
 #include <commdlg.h>
 #include <GLFW/glfw3.h>
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
 
-#include "Bacon/Core/Application.h"
-
 namespace Bacon {
+
+	float Time::GetTime()
+	{
+		return glfwGetTime();
+	}
 
 	std::string FileDialogs::OpenFile(const char* filter)
 	{

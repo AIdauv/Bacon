@@ -1,8 +1,8 @@
 #pragma once
 
-#include <filesystem>
-
 #include "Bacon/Renderer/Texture.h"
+
+#include <filesystem>
 
 namespace Bacon {
 

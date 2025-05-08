@@ -1,9 +1,9 @@
 #pragma once
 
-#include <glm/glm.hpp>
-
 #include "Bacon/Core/KeyCodes.h"
 #include "Bacon/Core/MouseCodes.h"
+
+#include <glm/glm.hpp>
 
 namespace Bacon {
 

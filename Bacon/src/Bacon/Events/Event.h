@@ -1,8 +1,9 @@
 #pragma once
-#include <functional>
 
 #include "Bacon/Debug/Instrumentor.h"
 #include "Bacon/Core/Base.h"
+
+#include <functional>
 
 namespace Bacon {
 

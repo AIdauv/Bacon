@@ -7,7 +7,8 @@
 class Sandbox : public Bacon::Application
 {
 public:
-	Sandbox()
+	Sandbox(const Bacon::ApplicationSpecification& specification)
+		: Bacon::Application(specification)
 	{
 		// PushLayer(new ExampleLayer());
 		PushLayer(new Sandbox2D());
@@ -18,7 +19,12 @@ public:
 	}
 };
 
-Bacon::Application* Bacon::CreateApplication()
+Bacon::Application* Bacon::CreateApplication(Bacon::ApplicationCommandLineArgs args)
 {
-	return new Sandbox();
+	ApplicationSpecification spec;
+	spec.Name = "Sandbox";
+	spec.WorkingDirectory = "../Skillet";
+	spec.CommandLineArgs = args;
+
+	return new Sandbox(spec);
 }

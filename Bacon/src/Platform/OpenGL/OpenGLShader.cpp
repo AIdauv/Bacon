@@ -1,5 +1,6 @@
 #include "bcpch.h"
 #include "Platform/OpenGL/OpenGLShader.h"
+#include "Bacon/Core/Timer.h"
 
 #include <fstream>
 #include <glad/glad.h>
@@ -9,8 +10,6 @@
 #include <shaderc/shaderc.hpp>
 #include <spirv_cross/spirv_cross.hpp>
 #include <spirv_cross/spirv_glsl.hpp>
-
-#include "Bacon/Core/Timer.h"
 
 namespace Bacon {
 

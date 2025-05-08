@@ -1,9 +1,9 @@
 #pragma once
 
-#include <sstream>
-
 #include "Bacon/Core/Base.h"
 #include "Bacon/Events/Event.h"
+
+#include <sstream>
 
 namespace Bacon {
 

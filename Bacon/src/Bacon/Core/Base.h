@@ -1,8 +1,8 @@
 #pragma once
 
-#include <memory>
-
 #include "Bacon/Core/PlatformDetection.h"
+
+#include <memory>
 
 #ifdef BC_DEBUG
 	#if defined(BC_PLATFORM_WINDOWS)
