@@ -30,6 +30,11 @@ namespace Bacon {
 
     Scene::~Scene()
     {
+		if (m_PhysicsWorldInitialized)
+		{
+			b2DestroyWorld(m_PhysicsWorld);
+			m_PhysicsWorld = b2_nullWorldId; 
+		}
     }
 
 	template<typename Component>
@@ -110,62 +115,22 @@ namespace Bacon {
 
 	void Scene::OnRuntimeStart()
 	{
-		b2WorldDef worldDef = b2DefaultWorldDef();
-		worldDef.gravity = { 0.0f, -9.8f };
-		m_PhysicsWorld = b2CreateWorld(&worldDef);
-
-		auto view = m_Registry.view<Rigidbody2DComponent>();
-		for (auto e : view)
-		{
-			Entity entity = { e, this };
-			auto& transform = entity.GetComponent<TransformComponent>();
-			auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
-
-			b2BodyDef bodyDef = b2DefaultBodyDef();
-			bodyDef.type = Rigidbody2DTypeToBox2DBody(rb2d.Type);
-			bodyDef.position ={ transform.Translation.x, transform.Translation.y };
-			bodyDef.rotation = b2MakeRot(transform.Rotation.z);
-			bodyDef.fixedRotation = rb2d.FixedRotation;
-
-			b2BodyId body = b2CreateBody(m_PhysicsWorld, &bodyDef);
-			rb2d.RuntimeBody = body;
-
-			if (entity.HasComponent<BoxCollider2DComponent>())
-			{
-				auto& bc2d = entity.GetComponent<BoxCollider2DComponent>();
-
-				b2Polygon boxShape = b2MakeBox(bc2d.Size.x * transform.Scale.x, bc2d.Size.y * transform.Scale.y);
-
-				b2ShapeDef shapeDef = b2DefaultShapeDef();
-				shapeDef.density = bc2d.Density;
-				shapeDef.material.friction = bc2d.Friction;
-				shapeDef.material.restitution = bc2d.Restitution;
-				//TODO(me): add restitutionThreshold
-
-				b2CreatePolygonShape(body, &shapeDef, &boxShape);
-			}
-
-			if (entity.HasComponent<CircleCollider2DComponent>())
-			{
-				auto& cc2d = entity.GetComponent<CircleCollider2DComponent>();
-
-				b2Circle circleShape = { {cc2d.Offset.x, cc2d.Offset.y}, transform.Scale.x * cc2d.Radius };
-
-				b2ShapeDef shapeDef = b2DefaultShapeDef();
-				shapeDef.density = cc2d.Density;
-				shapeDef.material.friction = cc2d.Friction;
-				shapeDef.material.restitution = cc2d.Restitution;
-				//TODO(me): add restitutionThreshold
-
-				b2CreateCircleShape(body, &shapeDef, &circleShape);
-			}
-		}
+		OnPhysics2DStart();
 	}
 
 	void Scene::OnRuntimeStop()
 	{
-		b2DestroyWorld(m_PhysicsWorld);
-		m_PhysicsWorld = b2_nullWorldId;
+		OnPhysics2DStop();
+	}
+
+	void Scene::OnSimulationStart()
+	{
+		OnPhysics2DStart();
+	}
+
+	void Scene::OnSimulationStop()
+	{
+		OnPhysics2DStop();
 	}
 
 	void Scene::OnUpdateRuntime(Timestep ts)
@@ -256,33 +221,37 @@ namespace Bacon {
 
     }
 
+	void Scene::OnUpdateSimulation(Timestep ts, EditorCamera& camera)
+	{
+		// Physics
+		{
+			const int32_t subStepCount = 4;
+			b2World_Step(m_PhysicsWorld, ts, subStepCount);
+
+			// Retrieve transform from Box2D
+			auto view = m_Registry.view<Rigidbody2DComponent>();
+			for (auto e : view)
+			{
+				Entity entity = { e, this };
+				auto& transform = entity.GetComponent<TransformComponent>();
+				auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
+
+				b2BodyId body = rb2d.RuntimeBody;
+				const auto& position = b2Body_GetPosition(body);
+				transform.Translation.x = position.x;
+				transform.Translation.y = position.y;
+				transform.Rotation.z = b2Rot_GetAngle(b2Body_GetRotation(body));
+			}
+		}
+
+		// Render
+		RenderScene(camera);
+	}
+
 	void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera)
 	{
-		Renderer2D::BeginScene(camera);
-
-		// Draw sprites
-		{
-			auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-			for (auto entity : group)
-			{
-				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
-
-				Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
-			}
-		}
-
-		// Draw circles
-		{
-			auto view = m_Registry.view<TransformComponent, CircleRendererComponent>();
-			for (auto entity : view)
-			{
-				auto [transform, circle] = view.get<TransformComponent, CircleRendererComponent>(entity);
-
-				Renderer2D::DrawCircle(transform.GetTransform(), circle.Color, circle.Thickness, circle.Fade, (int)entity);
-			}
-		}
-
-		Renderer2D::EndScene();
+		// Render
+		RenderScene(camera);
 	}
 
     void Scene::OnViewportResize(uint32_t width, uint32_t height)
@@ -298,7 +267,6 @@ namespace Bacon {
             if (!cameraComponent.FixedAspectRatio)
                 cameraComponent.Camera.SetViewportSize(width, height);
         }
-
     }
 
 	void Scene::DuplicateEntity(Entity entity)
@@ -333,6 +301,98 @@ namespace Bacon {
     {
         // static_assert(false);
     }
+
+	void Scene::OnPhysics2DStart()
+	{
+		b2WorldDef worldDef = b2DefaultWorldDef();
+		worldDef.gravity = { 0.0f, -9.8f };
+		m_PhysicsWorld = b2CreateWorld(&worldDef);
+		m_PhysicsWorldInitialized = true;
+
+		auto view = m_Registry.view<Rigidbody2DComponent>();
+		for (auto e : view)
+		{
+			Entity entity = { e, this };
+			auto& transform = entity.GetComponent<TransformComponent>();
+			auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
+
+			b2BodyDef bodyDef = b2DefaultBodyDef();
+			bodyDef.type = Rigidbody2DTypeToBox2DBody(rb2d.Type);
+			bodyDef.position = { transform.Translation.x, transform.Translation.y };
+			bodyDef.rotation = b2MakeRot(transform.Rotation.z);
+			bodyDef.fixedRotation = rb2d.FixedRotation;
+
+			b2BodyId body = b2CreateBody(m_PhysicsWorld, &bodyDef);
+			rb2d.RuntimeBody = body;
+
+			if (entity.HasComponent<BoxCollider2DComponent>())
+			{
+				auto& bc2d = entity.GetComponent<BoxCollider2DComponent>();
+
+				b2Polygon boxShape = b2MakeBox(bc2d.Size.x * transform.Scale.x, bc2d.Size.y * transform.Scale.y);
+
+				b2ShapeDef shapeDef = b2DefaultShapeDef();
+				shapeDef.density = bc2d.Density;
+				shapeDef.material.friction = bc2d.Friction;
+				shapeDef.material.restitution = bc2d.Restitution;
+				//TODO(me): add restitutionThreshold
+
+				b2CreatePolygonShape(body, &shapeDef, &boxShape);
+			}
+
+			if (entity.HasComponent<CircleCollider2DComponent>())
+			{
+				auto& cc2d = entity.GetComponent<CircleCollider2DComponent>();
+
+				b2Circle circleShape = { {cc2d.Offset.x, cc2d.Offset.y}, transform.Scale.x * cc2d.Radius };
+
+				b2ShapeDef shapeDef = b2DefaultShapeDef();
+				shapeDef.density = cc2d.Density;
+				shapeDef.material.friction = cc2d.Friction;
+				shapeDef.material.restitution = cc2d.Restitution;
+				//TODO(me): add restitutionThreshold
+
+				b2CreateCircleShape(body, &shapeDef, &circleShape);
+			}
+		}
+	}
+
+	void Scene::OnPhysics2DStop()
+	{
+		b2DestroyWorld(m_PhysicsWorld);
+		m_PhysicsWorld = b2_nullWorldId;
+		m_PhysicsWorldInitialized = false;
+	}
+
+	void Scene::RenderScene(EditorCamera& camera)
+	{
+		Renderer2D::BeginScene(camera);
+
+		// Draw sprites
+		{
+			auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+			for (auto entity : group)
+			{
+				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+
+				Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+			}
+		}
+
+		// Draw circles
+		{
+			auto view = m_Registry.view<TransformComponent, CircleRendererComponent>();
+			for (auto entity : view)
+			{
+				auto [transform, circle] = view.get<TransformComponent, CircleRendererComponent>(entity);
+
+				Renderer2D::DrawCircle(transform.GetTransform(), circle.Color, circle.Thickness, circle.Fade, (int)entity);
+			}
+		}
+
+		Renderer2D::EndScene();
+	}
+
 
 	template<>
 	void Scene::OnComponentAdded<IDComponent>(Entity entity, IDComponent& component)
