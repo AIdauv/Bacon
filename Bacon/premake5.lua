@@ -40,9 +40,10 @@ project "Bacon"
         "%{IncludeDir.glm}",
         "%{IncludeDir.stb_image}",
         "%{IncludeDir.entt}",
+        "%{IncludeDir.mono}",
         "%{IncludeDir.yaml_cpp}",
         "%{IncludeDir.ImGuizmo}",
- 		"%{IncludeDir.VulkanSDK}"
+		"%{IncludeDir.VulkanSDK}"
     }
 
     links 
@@ -53,6 +54,8 @@ project "Bacon"
         "ImGui",
         "yaml-cpp",
         "opengl32.lib",
+
+		"%{Library.mono}",
     }
 
     filter "files:vendor/ImGuizmo/**.cpp"
@@ -64,6 +67,14 @@ project "Bacon"
         defines
         {
         }
+
+        links
+		{
+			"%{Library.WinSock}",
+			"%{Library.WinMM}",
+			"%{Library.WinVersion}",
+			"%{Library.BCrypt}",
+		}
 
     filter "configurations:Debug"
         defines "BC_DEBUG"

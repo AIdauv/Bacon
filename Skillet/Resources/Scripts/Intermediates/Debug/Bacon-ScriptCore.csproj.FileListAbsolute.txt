@@ -1,0 +1,6 @@
+C:\Dev\Bacon\Skillet\Resources\Scripts\Intermediates\Debug\Bacon-ScriptCore.csproj.AssemblyReference.cache
+C:\Dev\Bacon\Skillet\Resources\Scripts\Intermediates\Debug\Bacon-ScriptCore.csproj.CoreCompileInputs.cache
+C:\Dev\Bacon\Skillet\Resources\Scripts\Intermediates\Debug\Bacon-ScriptCore.dll
+C:\Dev\Bacon\Skillet\Resources\Scripts\Intermediates\Debug\Bacon-ScriptCore.pdb
+C:\Dev\Bacon\Skillet\Resources\Scripts\Bacon-ScriptCore.dll
+C:\Dev\Bacon\Skillet\Resources\Scripts\Bacon-ScriptCore.pdb

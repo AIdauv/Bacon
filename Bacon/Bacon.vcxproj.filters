@@ -28,6 +28,9 @@
     <Filter Include="src\Bacon\Scene">
       <UniqueIdentifier>{BC3C15F1-28C8-82B5-31D9-05AA9DE3DEB5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Bacon\Scripting">
+      <UniqueIdentifier>{21FCB09C-8D5D-8EAA-16CB-D45C822BC569}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Bacon\Utils">
       <UniqueIdentifier>{FFD042F1-6B5C-B0B5-746D-33AAE0770CB6}</UniqueIdentifier>
     </Filter>
@@ -200,6 +203,9 @@
     </ClInclude>
     <ClInclude Include="src\Bacon\Scene\ScriptableEntity.h">
       <Filter>src\Bacon\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Scripting\ScriptEngine.h">
+      <Filter>src\Bacon\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Utils\PlatformUtils.h">
       <Filter>src\Bacon\Utils</Filter>
@@ -1494,6 +1500,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\Scripting\ScriptGlue.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Core\Application.cpp">
@@ -1577,6 +1584,9 @@
     <ClCompile Include="src\Bacon\Scene\SceneSerializer.cpp">
       <Filter>src\Bacon\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bacon\Scripting\ScriptEngine.cpp">
+      <Filter>src\Bacon\Scripting</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1619,5 +1629,6 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bacon\Scripting\ScriptGlue.cpp" />
   </ItemGroup>
 </Project>

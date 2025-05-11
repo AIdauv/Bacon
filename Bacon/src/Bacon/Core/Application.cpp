@@ -4,9 +4,9 @@
 #include "Bacon/Core/Log.h"
 
 #include "Bacon/Renderer/Renderer.h"
+#include "Bacon/Scripting/ScriptEngine.h"
 
 #include "Bacon/Core/Input.h"
-
 #include "Bacon/Utils/PlatformUtils.h"
 
 namespace Bacon { 
@@ -29,6 +29,7 @@ namespace Bacon {
 		m_Window->SetEventCallback(BC_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
+		ScriptEngine::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
@@ -38,6 +39,7 @@ namespace Bacon {
 	{
 		BC_PROFILE_FUNCTION();
 
+		ScriptEngine::Shutdown();
 		Renderer::Shutdown();
 	}
 	

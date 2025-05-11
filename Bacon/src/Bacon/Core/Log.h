@@ -2,6 +2,9 @@
 
 #include "Bacon/Core/Base.h"
 
+#define GLM_ENABLE_EXPERIMENTAL
+#include "glm/gtx/string_cast.hpp"
+
 // This ignores all warnings raised inside External headers
 #pragma warning(push, 0)
 #include <spdlog/spdlog.h>
@@ -23,6 +26,33 @@ namespace Bacon {
 	};
 
 }
+
+template <glm::length_t L, typename T, glm::qualifier Q>
+struct fmt::formatter<glm::vec<L, T, Q>> : fmt::formatter<std::string>
+{
+	auto format(const glm::vec<L, T, Q>& vec, format_context& ctx) const
+	{
+		return fmt::formatter<std::string>::format(glm::to_string(vec), ctx);
+	}
+};
+
+template <glm::length_t C, glm::length_t R, typename T, glm::qualifier Q>
+struct fmt::formatter<glm::mat<C, R, T, Q>> : fmt::formatter<std::string>
+{
+	auto format(const glm::mat<C, R, T, Q>& mat, format_context& ctx) const
+	{
+		return fmt::formatter<std::string>::format(glm::to_string(mat), ctx);
+	}
+};
+
+template <typename T, glm::qualifier Q>
+struct fmt::formatter<glm::qua<T, Q>> : fmt::formatter<std::string>
+{
+	auto format(const glm::qua<T, Q>& quat, format_context& ctx) const
+	{
+		return fmt::formatter<std::string>::format(glm::to_string(quat), ctx);
+	}
+};
 
 // Core log macros
 #define BC_CORE_TRACE(...)	    ::Bacon::Log::GetCoreLogger()->trace(__VA_ARGS__)

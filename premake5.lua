@@ -33,8 +33,17 @@ group "Dependencies"
     include "Bacon/vendor/yaml-cpp"
 group ""
 
-include "Bacon"
-include "Sandbox"
-include "Skillet"
+group "Core"
+	include "Bacon"
+	include "Bacon-ScriptCore"
+group ""
+
+group "Tools"
+	include "Skillet"
+group ""
+
+group "Misc"
+	include "Sandbox"
+group ""
 
 
