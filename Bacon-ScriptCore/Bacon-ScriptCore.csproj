@@ -63,8 +63,6 @@
     <Compile Include="Source\Bacon\Scene\Entity.cs" />
     <Compile Include="Source\Bacon\Vector2.cs" />
     <Compile Include="Source\Bacon\Vector3.cs" />
-    <Compile Include="Source\Camera.cs" />
-    <Compile Include="Source\Player.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

@@ -3,8 +3,8 @@ project "Bacon-ScriptCore"
 	language "C#"
 	dotnetframework "4.7.2"
 
-	targetdir ("%{wks.location}/Skillet/Resources/Scripts")
-	objdir ("%{wks.location}/Skillet/Resources/Scripts/Intermediates")
+	targetdir ("../Skillet/Resources/Scripts")
+	objdir ("../Skillet/Resources/Scripts/Intermediates")
 
 	files 
 	{
