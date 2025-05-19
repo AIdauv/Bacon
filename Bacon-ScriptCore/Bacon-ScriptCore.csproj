@@ -21,8 +21,7 @@
     <OutputPath>..\Skillet\Resources\Scripts\</OutputPath>
     <BaseIntermediateOutputPath>..\Skillet\Resources\Scripts\Intermediates\Debug\</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-    <DefineConstants>
-    </DefineConstants>
+    <DefineConstants></DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -34,8 +33,7 @@
     <OutputPath>..\Skillet\Resources\Scripts\</OutputPath>
     <BaseIntermediateOutputPath>..\Skillet\Resources\Scripts\Intermediates\Release\</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-    <DefineConstants>
-    </DefineConstants>
+    <DefineConstants></DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -47,8 +45,7 @@
     <OutputPath>..\Skillet\Resources\Scripts\</OutputPath>
     <BaseIntermediateOutputPath>..\Skillet\Resources\Scripts\Intermediates\Dist\</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-    <DefineConstants>
-    </DefineConstants>
+    <DefineConstants></DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -59,7 +56,15 @@
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Dist|x64' ">
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\Main.cs" />
+    <Compile Include="Source\Bacon\Input.cs" />
+    <Compile Include="Source\Bacon\InternalCalls.cs" />
+    <Compile Include="Source\Bacon\KeyCode.cs" />
+    <Compile Include="Source\Bacon\Scene\Components.cs" />
+    <Compile Include="Source\Bacon\Scene\Entity.cs" />
+    <Compile Include="Source\Bacon\Vector2.cs" />
+    <Compile Include="Source\Bacon\Vector3.cs" />
+    <Compile Include="Source\Camera.cs" />
+    <Compile Include="Source\Player.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

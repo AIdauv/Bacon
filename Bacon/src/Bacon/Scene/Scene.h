@@ -38,6 +38,8 @@ namespace Bacon {
 
 		void DuplicateEntity(Entity entity);
 
+		Entity GetEntityByUUID(UUID uuid);
+
 		Entity GetPrimaryCameraEntity();
 
 		template<typename... Components>
@@ -59,6 +61,8 @@ namespace Bacon {
 
 		b2WorldId m_PhysicsWorld = b2_nullWorldId;
 		bool m_PhysicsWorldInitialized = false;
+
+		std::unordered_map<UUID, entt::entity> m_EntityMap;
 
         friend class Entity;
 		friend class SceneSerializer;
