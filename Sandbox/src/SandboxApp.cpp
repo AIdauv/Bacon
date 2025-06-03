@@ -1,6 +1,7 @@
 #include <Bacon.h>
 #include <Bacon/Core/EntryPoint.h>
 
+#include "perfTest.h"
 #include "Sandbox2D.h"
 #include "ExampleLayer.h"
 
@@ -11,7 +12,8 @@ public:
 		: Bacon::Application(specification)
 	{
 		// PushLayer(new ExampleLayer());
-		PushLayer(new Sandbox2D());
+		// PushLayer(new Sandbox2D());
+		PushLayer(new perfTest());
 	}
 	
 	~Sandbox()

@@ -15,6 +15,7 @@ project "Sandbox"
 
     includedirs
     {
+        "%{IncludeDir.Glad}",
         "%{wks.location}/Bacon/vendor/spdlog/include",
         "%{wks.location}/Bacon/src",
         "%{wks.location}/Bacon/vendor",

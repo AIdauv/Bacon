@@ -1,0 +1,256 @@
+Scene: Untitled
+Entities:
+  - Entity: 2272256908758754413
+    TagComponent:
+      Tag: ground
+    TransformComponent:
+      Translation: [36.35726, 6.28873, 0]
+      Rotation: [0, 0, -2.2775543]
+      Scale: [49.999977, 2.3999968, 2.4]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\ground.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 2154747088785775542
+    TagComponent:
+      Tag: ground
+    TransformComponent:
+      Translation: [1.4987056, -4.244229, 0]
+      Rotation: [0, 0, 0]
+      Scale: [50, 2.4, 2.4]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\ground.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 15034942469469778839
+    TagComponent:
+      Tag: player
+    TransformComponent:
+      Translation: [-2.8102233, -2.1549318, 0]
+      Rotation: [0, 0, -8.575456e-08]
+      Scale: [1.609188, 1.9302907, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Player
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\XLR.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: true
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 16716632301953726689
+    TagComponent:
+      Tag: camera
+    TransformComponent:
+      Translation: [0.8424263, 0.36621475, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 1
+        PerspectiveFOV: 0.7853982
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+    ScriptComponent:
+      ClassName: Sandbox.Camera
+  - Entity: 2082095008647686385
+    TagComponent:
+      Tag: sky
+    TransformComponent:
+      Translation: [1.6577454, 0.23979855, -0.3]
+      Rotation: [0, 0, 0]
+      Scale: [50, 50, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\(Clouds).png
+      TilingFactor: 1
+  - Entity: 13927934772208745075
+    TagComponent:
+      Tag: mountain
+    TransformComponent:
+      Translation: [1.6404319, -1.8174443, -0.2]
+      Rotation: [0, 0, 0]
+      Scale: [50, 20, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\(Mountains).png
+      TilingFactor: 1
+  - Entity: 16145856770862925465
+    TagComponent:
+      Tag: ground
+    TransformComponent:
+      Translation: [-28.856497, 0.5281553, 1.7911987]
+      Rotation: [-0.014065565, 0.038406044, -0.71271706]
+      Scale: [50.000057, 2.3999958, 2.400001]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\ground.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 16325632006321636003
+    TagComponent:
+      Tag: BOX6
+    TransformComponent:
+      Translation: [2.257393, -2.6120508, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\BOX.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.1
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 6702227544154511018
+    TagComponent:
+      Tag: BOX5
+    TransformComponent:
+      Translation: [2.437996, -0.32906127, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\BOX.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.1
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 12647674081829892019
+    TagComponent:
+      Tag: BOX4
+    TransformComponent:
+      Translation: [2.9797058, -1.4512155, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\BOX.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.1
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 14118909738298127168
+    TagComponent:
+      Tag: BOX3
+    TransformComponent:
+      Translation: [1.780159, -1.5156991, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\BOX.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.1
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 15063498161615599446
+    TagComponent:
+      Tag: BOX2
+    TransformComponent:
+      Translation: [3.4569397, -2.560476, -6.1035156e-05]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\BOX.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.1
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 11515747040767436829
+    TagComponent:
+      Tag: BOX1
+    TransformComponent:
+      Translation: [1.1868668, -2.5991418, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\textures\BOX.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.1
+      Restitution: 0
+      RestitutionThreshold: 0.5
